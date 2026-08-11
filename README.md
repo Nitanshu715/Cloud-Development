@@ -6,10 +6,6 @@
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud%20Development-orange?logo=amazonaws)
 
-![Experiments](https://img.shields.io/badge/Experiments-2-blue)
-
-![Status](https://img.shields.io/badge/Status-In%20Progress-green)
-
 
 ---
 
