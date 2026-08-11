@@ -1,83 +1,175 @@
-# Cloud Application Development Lab
-
-This repository contains the laboratory experiments performed for the **Cloud Application Development** course using **Amazon Web Services (AWS)**.
-
-## 📂 Repository Structure
-
-```text
-Cloud-Application-Development-Lab/
-│
-├── README.md
-│
-├── Experiment-01/
-│   ├── README.md
-│   ├── website/
-│   │   └── index.html
-│   └── screenshots/
+# ☁️ AWS Cloud Development Lab
 
 
-Each experiment has its own directory containing its documentation, source files, and practical screenshots.
+> A practical collection of AWS cloud experiments covering core cloud infrastructure and services.
+
+
+![AWS](https://img.shields.io/badge/AWS-Cloud%20Development-orange?logo=amazonaws)
+
+![Experiments](https://img.shields.io/badge/Experiments-2-blue)
+
+![Status](https://img.shields.io/badge/Status-In%20Progress-green)
+
 
 ---
+
+
+## 📌 About
+
+
+This repository contains the practical experiments performed as part of the **Cloud Development Lab**.
+
+
+Each experiment focuses on understanding and implementing an AWS cloud service through the AWS Management Console and, where required, command-line tools.
+
+
+The repository is organized experiment-wise so that each lab can be accessed and documented independently.
+
+
+---
+
 
 ## 🧪 Experiments
 
-### Experiment 01 — Static Web Application using Amazon S3 and CloudFront
 
-**Objective:**  
-Deploy a static web application using Amazon S3 for storage and Amazon CloudFront for secure and efficient content delivery.
+| Experiment | Topic | Status |
 
-**AWS Services Used:**
+|---|---|---|
+
+| **Experiment 1** | Amazon S3 + CloudFront — Static Website Delivery | ✅ Completed |
+
+| **Experiment 2** | Introduction to Amazon EC2 | ✅ Completed |
+
+
+---
+
+
+## 📂 Repository Structure
+
+
+```text
+
+cloud-development/
+
+│
+
+├── experiment-1/
+
+│   └── README.md
+
+│
+
+├── experiment-2/
+
+│   └── README.md
+
+│
+
+└── README.md
+
+```
+
+
+---
+
+
+## ☁️ Experiment 1 — S3 + CloudFront
+
+
+**Topic:** Static website hosting and content delivery using Amazon S3 and Amazon CloudFront.
+
+
+### Key Work
+
+
+- Created an S3 bucket for website content.
+
+- Configured CloudFront with the S3 bucket as the origin.
+
+- Enabled private S3 access through CloudFront.
+
+- Configured the default root object as `index.html`.
+
+- Created and deployed a CloudFront distribution.
+
+- Verified the CloudFront distribution and deployment.
+
+
+📁 Detailed documentation is available in [`experiment-1/README.md`](experiment-1/README.md).
+
+
+---
+
+
+## 🖥️ Experiment 2 — Introduction to EC2
+
+
+**Topic:** Launching and accessing a cloud-based virtual machine using Amazon EC2.
+
+
+### Key Work
+
+
+- Launched a free-tier eligible `t3.micro` EC2 instance.
+
+- Used Amazon Linux 2023.
+
+- Configured a Security Group for SSH access.
+
+- Connected using EC2 Instance Connect.
+
+- Inspected CPU, memory, storage, OS, hostname, and network information using Linux commands.
+
+
+📁 Detailed documentation is available in [`experiment-2/README.md`](experiment-2/README.md).
+
+
+---
+
+
+## 🛠️ Technologies & Services
+
+
+- **Amazon Web Services (AWS)**
+
 - Amazon S3
+
 - Amazon CloudFront
 
-**Implementation:**
+- Amazon EC2
 
-```text
-User / Browser
-      |
-      v
-Amazon CloudFront
-      |
-      v
-Private Amazon S3
-      |
-      v
-index.html
-```
+- EC2 Instance Connect
 
-The static website was uploaded to the S3 bucket:
+- Security Groups
 
-```text
-nitanshu-cloud-development-lab-1
-```
+- Amazon Linux
 
-The bucket was kept private, and CloudFront was configured to access it as the origin. `index.html` was configured as the default root object.
+- Linux command line
 
-**Final Deployment:**
-
-```text
-https://dk81xb1bby19.cloudfront.net
-```
-
-Complete documentation and implementation details are available in:
-
-```text
-Experiment-01/README.md
-```
 
 ---
 
-## ☁️ Platform
 
-**Cloud Platform:** Amazon Web Services (AWS)
+## 🎯 Purpose
 
-Additional experiments will be added to the repository as the laboratory progresses.
+
+The main objective of this repository is to build practical understanding of AWS infrastructure by **creating, configuring, accessing, and validating cloud resources** rather than only studying the concepts theoretically.
+
 
 ---
+
 
 ## 👨‍💻 Author
 
-**Nitanshu Tak**
 
-B.Tech CSE — Cloud Computing & Virtualization Technology
+**Nitanshu Tak**  
+
+B.Tech — Computer Science Engineering  
+
+Cloud Computing & Virtualization Technology
+
+
+---
+
+
+> 🚀 **Cloud Development Lab — Learn → Build → Deploy → Verify**
