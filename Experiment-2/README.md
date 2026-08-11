@@ -1,18 +1,35 @@
-# ☁️ Experiment 2 — Introduction to Amazon EC2
+# ☁️ Experiment 2: Introduction to Amazon EC2
 
 
-> **Cloud Development Lab**  
-
-> Launch, access, and explore a virtual server using **Amazon EC2**.
+**Cloud Development Lab** · **AWS EC2** · **ap-south-1 (Mumbai)**
 
 
-![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws)
+> **Objective:** Launch a cloud-based virtual machine, configure secure access, connect to it remotely, and inspect its basic system and network resources.
 
-![OS](https://img.shields.io/badge/OS-Amazon%20Linux%202023-blue)
 
-![Region](https://img.shields.io/badge/Region-ap--south--1-purple)
+---
 
-![Instance](https://img.shields.io/badge/Instance-t3.micro-green)
+
+## 📋 Experiment Details
+
+
+| Item | Configuration |
+
+|---|---|
+
+| **AWS Service** | Amazon EC2 |
+
+| **Region** | Asia Pacific (Mumbai) — `ap-south-1` |
+
+| **Instance Type** | `t3.micro` |
+
+| **Operating System** | Amazon Linux 2023 |
+
+| **Access** | EC2 Instance Connect |
+
+| **Security** | Security Group + SSH |
+
+| **SSH Port** | `22` |
 
 
 ---
@@ -21,178 +38,153 @@
 ## 🎯 Aim
 
 
-To launch an Amazon EC2 virtual machine, configure basic network access, connect to the instance, and inspect its system resources using Linux commands.
-
-
-## 🧰 AWS Resources Used
-
-
-| Resource | Configuration |
-
-|---|---|
-
-| **Service** | Amazon EC2 |
-
-| **Region** | Asia Pacific (Mumbai) — `ap-south-1` |
-
-| **Instance Type** | `t3.micro` |
-
-| **Operating System** | Amazon Linux 2023 |
-
-| **Access Method** | EC2 Instance Connect |
-
-| **Network Security** | Security Group / SSH |
-
-| **SSH Port** | TCP `22` |
+To understand the basic workflow of **Amazon EC2** by creating a virtual server, configuring network access, connecting to the instance, and examining its operating system and available resources.
 
 
 ---
 
 
-## 🚀 What Was Done
+## 🚀 Experiment Workflow
 
 
-1. Opened **Amazon EC2** in the AWS Management Console.
+```text
 
-2. Selected the **Mumbai (`ap-south-1`)** region.
+AWS Console
 
-3. Launched a free-tier eligible **t3.micro** instance.
+    │
+
+    ▼
+
+Launch EC2 Instance
+
+    │
+
+    ├── Amazon Linux 2023
+
+    ├── t3.micro
+
+    └── Security Group
+
+            │
+
+            ▼
+
+      SSH / Port 22
+
+            │
+
+            ▼
+
+  EC2 Instance Connect
+
+            │
+
+            ▼
+
+   Linux System Inspection
+
+```
+
+
+---
+
+
+## 🛠️ Steps Performed
+
+
+1. Opened **Amazon EC2** from the AWS Management Console.
+
+2. Selected the **Mumbai (`ap-south-1`)** AWS region.
+
+3. Launched a free-tier eligible `t3.micro` instance.
 
 4. Selected **Amazon Linux 2023** as the AMI.
 
-5. Configured the Security Group for SSH access.
+5. Configured the associated Security Group for SSH access on port `22`.
 
-6. Waited for the instance to become **Running** and pass its status checks.
+6. Waited for the instance to reach the **Running** state and pass its status checks.
 
 7. Connected to the instance using **EC2 Instance Connect**.
 
-8. Executed Linux commands to inspect the virtual machine.
+8. Used Linux commands to inspect the virtual machine.
 
-9. Verified its OS, CPU, memory, storage, hostname, and network configuration.
+9. Verified the operating system, CPU, memory, storage, hostname, and network configuration.
 
-10. Cleaned up the instance after completing the lab.
-
-
----
-
-
-## 💻 Commands Used
-
-
-```bash
-
-whoami
-
-```
-
-Shows the currently logged-in user.
-
-
-```bash
-
-pwd
-
-```
-
-Displays the current working directory.
-
-
-```bash
-
-cat /etc/os-release
-
-```
-
-Displays operating-system details.
-
-
-```bash
-
-hostname
-
-```
-
-Displays the instance hostname.
-
-
-```bash
-
-lscpu
-
-```
-
-Displays CPU and virtualization information.
-
-
-```bash
-
-free -h
-
-```
-
-Displays memory usage in a human-readable format.
-
-
-```bash
-
-df -h
-
-```
-
-Displays filesystem and disk usage.
-
-
-```bash
-
-ip addr
-
-```
-
-Displays network interfaces and IP addresses.
+10. Completed the experiment and cleaned up the AWS resource when no longer required.
 
 
 ---
 
 
-## 🔍 Key Observations
+## 💻 Linux Commands
 
 
-- ✅ EC2 instance launched successfully.
+| Command | Purpose |
 
-- ✅ Instance reached the **Running** state.
+|---|---|
 
-- ✅ Status checks passed successfully.
+| `whoami` | Displays the current user |
 
-- ✅ **Amazon Linux 2023** was verified.
+| `pwd` | Displays the current working directory |
 
-- ✅ CPU and virtualization information were inspected.
+| `cat /etc/os-release` | Displays OS information |
 
-- ✅ Memory and disk usage were verified.
+| `hostname` | Displays the instance hostname |
 
-- ✅ Network interfaces and private IP information were inspected.
+| `lscpu` | Displays CPU and virtualization details |
 
-- ✅ Remote terminal access was established through **EC2 Instance Connect**.
+| `free -h` | Displays memory usage |
+
+| `df -h` | Displays disk/filesystem usage |
+
+| `ip addr` | Displays network interfaces and IP addresses |
 
 
 ---
 
 
-## 🧠 Concepts Demonstrated
+## 🔎 Observations
 
 
-**EC2** → Cloud-based virtual computing  
+- The EC2 instance was successfully launched.
 
-**AMI** → Template used to create the instance  
+- The instance reached the **Running** state.
 
-**Instance Type** → Defines compute resources  
+- All required instance status checks passed.
 
-**Security Group** → Virtual firewall controlling traffic  
+- **Amazon Linux 2023** was verified from the terminal.
 
-**SSH** → Secure remote access protocol  
+- CPU and virtualization details were inspected.
 
-**EC2 Instance Connect** → Browser-based connection to the instance  
+- Memory and disk utilization were checked.
 
-**Linux CLI** → Used to inspect and manage the virtual machine
+- The instance's private network interface and IP address were identified.
+
+- Remote shell access was successfully established through **EC2 Instance Connect**.
+
+
+---
+
+
+## 🧠 Concepts Covered
+
+
+**EC2** — Provides virtual compute capacity in AWS.
+
+
+**AMI** — A template containing the operating system and configuration used to launch an instance.
+
+
+**Instance Type** — Defines the compute resources allocated to an EC2 instance.
+
+
+**Security Group** — Acts as a virtual firewall controlling inbound and outbound traffic.
+
+
+**SSH** — Secure protocol used for remote command-line access.
+
+
+**EC2 Instance Connect** — Provides browser-based SSH access to an EC2 instance.
 
 
 ---
@@ -201,29 +193,20 @@ Displays network interfaces and IP addresses.
 ## 📸 Screenshots
 
 
-Screenshots captured during the experiment can be added here.
+Screenshots from the practical execution can be added below:
 
 
-```text
+1. EC2 instance launch / running state
 
-1. EC2 Instance Launch / Running State
+2. Security Group configuration
 
+3. EC2 Instance Connect terminal
 
-2. Security Group Configuration
+4. Amazon Linux 2023 verification
 
+5. CPU, memory, and storage information
 
-3. EC2 Instance Connect Terminal
-
-
-4. Operating System Verification
-
-
-5. CPU / Memory / Storage Information
-
-
-6. Network Configuration
-
-```
+6. Network configuration
 
 
 ---
@@ -249,7 +232,7 @@ cloud-development/
 ## ✅ Result
 
 
-The Amazon EC2 instance was successfully **launched, configured, accessed, and inspected**. The experiment provided a practical introduction to cloud-based virtual machines and basic Linux system administration on AWS.
+The EC2 instance was successfully **created, configured, accessed, and inspected**. The experiment demonstrated the fundamental workflow of provisioning and working with a cloud-based Linux virtual machine using Amazon EC2.
 
 
 ---
@@ -258,7 +241,7 @@ The Amazon EC2 instance was successfully **launched, configured, accessed, and i
 ### 🏁 Conclusion
 
 
-This experiment demonstrated the complete basic workflow of an EC2 virtual machine — from **provisioning and network security to remote access and system inspection**.
+This experiment provided a practical introduction to **AWS EC2**, covering instance provisioning, Security Groups, remote access, and basic Linux system administration.
 
 
-**Experiment 2 completed successfully. 🚀**
+**Experiment 2 — Completed Successfully. 🚀**
