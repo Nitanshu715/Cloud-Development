@@ -636,29 +636,16 @@ This creates a foundation for understanding larger AWS architectures where compu
 
 ## 📊 Experiment Summary
 
-
-
 | Area | Experiment 1 | Experiment 2 | Experiment 3 |
-
 |---|---|---|---|
-
 | Primary Service | S3 + CloudFront | EC2 | IAM |
-
 | Main Concept | Static Content Delivery | Cloud Compute | Identity & Access Control |
-
 | Storage | S3 | EBS / Instance Storage | S3 Permissions |
-
 | Compute | — | EC2 | — |
-
 | Networking | CloudFront Delivery | Security Group | IAM Authorization |
-
 | Security | Private S3 Origin + HTTPS | Security Group | IAM Policies + Explicit Deny |
-
 | Main Output | Deployed Website | Running Linux VM | Controlled AWS Permissions |
-
 | Status | ✅ Completed | ✅ Completed | ✅ Completed |
-
-
 
 ---
 
