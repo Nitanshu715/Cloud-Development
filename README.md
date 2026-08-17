@@ -66,27 +66,14 @@ The experiments collectively cover important areas of cloud application developm
 
 cloud-development/
 
-
-
-
 ├── experiment-1/
-
-
 │   └── README.md
-
 
 ├── experiment-2/
-
-
 │   └── README.md
-
-
 
 ├── experiment-3/
-
-
 │   └── README.md
-
 
 └── README.md
 
