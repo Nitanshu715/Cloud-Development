@@ -15,35 +15,20 @@
 ## 📌 Experiment Information
 
 
-
 | Parameter | Details |
-
 |---|---|
-
 | **Experiment** | Experiment 3 |
-
 | **Subject** | Cloud Computing Security and Management |
-
 | **Topic** | Introduction to AWS Identity and Access Management (IAM) |
-
 | **Cloud Platform** | Amazon Web Services (AWS) |
-
 | **Primary Service** | AWS Identity and Access Management (IAM) |
-
 | **Supporting Service** | Amazon S3 |
-
 | **Implementation** | AWS Management Console |
-
 | **Main Security Concept** | Identity-based access control |
-
 | **Permission Model Demonstrated** | Allow + Explicit Deny |
-
 | **Restricted Action** | `s3:DeleteBucket` |
-
 | **Security Principle** | Least Privilege |
-
 | **Status** | ✅ Completed |
-
 
 
 ---
