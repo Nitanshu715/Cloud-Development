@@ -6,15 +6,7 @@
 
 
 
-![AWS](https://img.shields.io/badge/AWS-IAM-orange?logo=amazonaws)
-
-![IAM](https://img.shields.io/badge/Service-IAM-blue)
-
-![Security](https://img.shields.io/badge/Focus-Cloud%20Security-red)
-
-![Status](https://img.shields.io/badge/Status-Completed-success)
-
-
+![AWS](https://img.shields.io/badge/AWS-IAM-orange?logo=amazonaws) ![IAM](https://img.shields.io/badge/Service-IAM-blue) ![Security](https://img.shields.io/badge/Focus-Cloud%20Security-red) ![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
