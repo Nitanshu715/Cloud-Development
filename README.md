@@ -43,13 +43,9 @@ The experiments collectively cover important areas of cloud application developm
 
 
 | Experiment | Topic | Status |
-
 |---|---|---|
-
 | **Experiment 1** | Amazon S3 + CloudFront — Static Website Delivery | ✅ Completed |
-
 | **Experiment 2** | Introduction to Amazon EC2 | ✅ Completed |
-
 | **Experiment 3** | Introduction to AWS IAM — Identity, Users & Access Policies | ✅ Completed |
 
 
