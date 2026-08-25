@@ -1,1015 +1,392 @@
-# ☁️ AWS Cloud Development Lab
+# ☁️ AWS Cloud Application Development Lab
 
+> A practical collection of AWS cloud experiments covering core cloud infrastructure, compute, storage, and application development services.
 
-
-> A practical collection of AWS cloud experiments covering core cloud infrastructure, application development, security, and management services.
-
-
-
-![AWS](https://img.shields.io/badge/AWS-Cloud%20Development-orange?logo=amazonaws)
-
-
+![AWS](https://img.shields.io/badge/AWS-Cloud%20Application%20Development-orange?logo=amazonaws) ![Cloud](https://img.shields.io/badge/Focus-Cloud%20Application%20Development-blue) ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 
 ---
-
-
 
 ## 📌 About
 
+This repository contains the practical experiments performed as part of the **Cloud Application Development Lab**.
 
+Each experiment focuses on understanding and implementing an AWS cloud service or concept through the **AWS Management Console** and, where required, supporting command-line or development tools.
 
-This repository contains the practical experiments performed as part of the **Cloud Development Lab**.
+The repository is organized experiment-wise so that every practical can be accessed, documented, and reviewed independently.
 
+The experiments progressively cover important cloud application-development concepts including:
 
-
-Each experiment focuses on understanding and implementing an AWS cloud service through the **AWS Management Console** and, where required, command-line tools.
-
-
-
-The repository is organized experiment-wise so that each lab can be accessed, executed, and documented independently.
-
-
-
-The experiments collectively cover important areas of cloud application development, infrastructure deployment, virtual machines, identity management, access control, security, and AWS service configuration.
-
-
+- Cloud storage
+- Content delivery
+- Cloud computing
+- Virtual machines
+- Identity and access management
+- Object storage
+- AWS resource configuration
+- Cloud security fundamentals
 
 ---
-
-
 
 ## 🧪 Experiments
 
-
-
-| Experiment | Topic | Status |
-|---|---|---|
-| **Experiment 1** | Amazon S3 + CloudFront — Static Website Delivery | ✅ Completed |
-| **Experiment 2** | Introduction to Amazon EC2 | ✅ Completed |
-| **Experiment 3** | Introduction to AWS IAM — Identity, Users & Access Policies | ✅ Completed |
-
-
+| Experiment | Topic | Primary AWS Service(s) | Status |
+|---|---|---|---|
+| **Experiment 1** | Amazon S3 + CloudFront — Static Website Delivery | S3, CloudFront | ✅ Completed |
+| **Experiment 2** | Introduction to Amazon EC2 | EC2, Security Groups | ✅ Completed |
+| **Experiment 3** | Introduction to AWS IAM — Identity, Users & Access Policies | IAM, S3 | ✅ Completed |
+| **Experiment 4** | Creating Buckets and Managing Objects in AWS | S3 | ✅ Completed |
 
 ---
-
-
 
 ## 📂 Repository Structure
 
-
-
 ```text
-
-cloud-development/
-
+cloud-application-development/
+│
 ├── experiment-1/
 │   └── README.md
-
+│
 ├── experiment-2/
 │   └── README.md
-
+│
 ├── experiment-3/
 │   └── README.md
-
+│
+├── experiment-4/
+│   └── README.md
+│
 └── README.md
-
 ```
-
-
 
 ---
 
+# ☁️ Experiments Overview
 
+## 🌐 Experiment 1 — S3 + CloudFront
 
-## ☁️ Experiment 1 — S3 + CloudFront
-
-
-
-**Topic:** Static website hosting and content delivery using Amazon S3 and Amazon CloudFront.
-
-
+**Topic:** Static Website Hosting and Content Delivery using Amazon S3 and Amazon CloudFront.
 
 ### Key Work
 
-
-
-- Created an Amazon S3 bucket for static website content.
-
-
-- Uploaded the `index.html` static web application.
-
-
-- Configured Amazon S3 as the origin for Amazon CloudFront.
-
-
-- Kept the S3 bucket private rather than exposing the storage origin directly.
-
-
-- Enabled private S3 access through CloudFront.
-
-
+- Created an Amazon S3 bucket for website content.
+- Configured the required S3 bucket settings.
+- Connected the S3 bucket with Amazon CloudFront.
+- Configured CloudFront with the S3 bucket as the origin.
+- Used private S3 access through the CloudFront delivery architecture.
 - Configured the default root object as `index.html`.
-
-
 - Created and deployed a CloudFront distribution.
+- Verified the CloudFront distribution and website delivery.
 
-
-- Verified the CloudFront distribution and its deployment status.
-
-
-- Accessed and validated the final static website through the CloudFront HTTPS endpoint.
-
-
-- Observed the role of CDN caching and edge-based content delivery.
-
-
-
-### AWS Services Used
-
-
+### Concepts Covered
 
 - Amazon S3
-
-
 - Amazon CloudFront
-
-
+- Object storage
+- Static website content
+- Content delivery networks
+- CloudFront distributions
+- S3 origin configuration
+- Secure content delivery
 
 📁 Detailed documentation is available in [`experiment-1/README.md`](experiment-1/README.md).
 
-
-
 ---
 
-
-
-## 🖥️ Experiment 2 — Introduction to EC2
-
-
+## 🖥️ Experiment 2 — Introduction to Amazon EC2
 
 **Topic:** Launching and accessing a cloud-based virtual machine using Amazon EC2.
 
-
-
 ### Key Work
 
-
-
 - Launched a free-tier eligible `t3.micro` EC2 instance.
-
-
-- Used Amazon Linux 2023 as the operating system.
-
-
+- Used Amazon Linux 2023.
 - Configured a Security Group for SSH access.
+- Connected to the EC2 instance using EC2 Instance Connect.
+- Inspected the running Linux environment.
+- Used Linux commands to inspect system and instance information.
+- Examined CPU, memory, storage, operating system, hostname, and network information.
 
-
-- Connected to the instance using EC2 Instance Connect.
-
-
-- Verified the running state and instance configuration.
-
-
-- Inspected CPU, memory, storage, operating system, hostname, and network information using Linux commands.
-
-
-- Understood the basic lifecycle and management of an EC2 virtual machine.
-
-
-- Observed how Security Groups control inbound network access to cloud infrastructure.
-
-
-
-### AWS Services & Technologies Used
-
-
+### Concepts Covered
 
 - Amazon EC2
-
-
-- EC2 Instance Connect
-
-
-- Security Groups
-
-
+- Cloud computing
+- Virtual machines
 - Amazon Linux
-
-
+- Instance types
+- Security Groups
+- SSH
+- EC2 Instance Connect
 - Linux command line
-
-
+- Cloud compute resources
 
 📁 Detailed documentation is available in [`experiment-2/README.md`](experiment-2/README.md).
 
-
-
 ---
-
-
 
 ## 🔐 Experiment 3 — Introduction to AWS IAM
 
-
-
-**Topic:** Identity and Access Management using AWS IAM, including IAM users, permissions, policies, S3 access control, explicit Deny, and the principle of least privilege.
-
-
+**Topic:** Identity, Users, Access Policies, and Permission Management using AWS IAM.
 
 ### Key Work
 
-
-
-- Opened and explored the AWS Identity and Access Management (IAM) service.
-
-
-- Created and managed two separate IAM users.
-
-
-- Reviewed individual IAM user configurations.
-
-
-- Inspected permissions assigned to IAM identities.
-
-
-- Explored IAM policies and their JSON-based permission structure.
-
-
-- Worked with Amazon S3 permissions as a practical authorization example.
-
-
-- Understood the difference between authentication and authorization.
-
-
-- Examined the relationship between IAM identities, policies, actions, and AWS resources.
-
-
-- Worked with broad S3 permissions such as `s3:*`.
-
-
-- Modified the permission model to restrict the high-impact `s3:DeleteBucket` action.
-
-
-- Used an explicit `Deny` statement to prevent bucket deletion.
-
-
-- Demonstrated that an explicit `Deny` overrides an applicable `Allow`.
-
-
-- Applied the principle of least privilege by restricting an unnecessary destructive operation while retaining other required S3 access.
-
-
-- Reviewed and verified the resulting permission behavior.
-
-
-- Documented IAM as a security and access-control layer for AWS resources.
-
-
-
-### IAM Policy Example
-
-
-
-The restricted S3 permission model used in the experiment follows the structure below:
-
-
-
-```json
-
-{
-
-  "Version": "2012-10-17",
-
-  "Statement": [
-
-    {
-
-      "Sid": "AllowS3Access",
-
-      "Effect": "Allow",
-
-      "Action": "s3:*",
-
-      "Resource": "*"
-
-    },
-
-    {
-
-      "Sid": "DenyBucketDeletion",
-
-      "Effect": "Deny",
-
-      "Action": "s3:DeleteBucket",
-
-      "Resource": "*"
-
-    }
-
-  ]
-
-}
-
-```
-
-
-
-The important IAM security principle demonstrated here is:
-
-
-
-```text
-
-Allow + Explicit Deny
-
-        ↓
-
-Explicit Deny takes precedence
-
-        ↓
-
-s3:DeleteBucket → DENIED
-
-```
-
-
-
-This demonstrates how IAM policies can be used to create security guardrails around powerful cloud permissions.
-
-
-
-### IAM Concepts Covered
-
-
-
-- AWS Identity and Access Management
-
-
-- IAM Users
-
-
-- IAM Groups
-
-
-- IAM Policies
-
-
-- Policy Statements
-
-
-- Allow and Deny
-
-
-- Explicit Deny precedence
-
-
-- Authentication
-
-
-- Authorization
-
-
-- AWS resource permissions
-
-
+- Explored AWS Identity and Access Management (IAM).
+- Created and configured IAM users.
+- Examined identity-based permissions.
+- Assigned permissions using IAM policies.
+- Worked with Amazon S3 permissions.
+- Modified an S3-related policy to restrict a specific action.
+- Demonstrated the difference between an allowed action and an explicitly denied action.
+- Restricted the `s3:DeleteBucket` operation while retaining other required S3 access.
+- Verified the resulting permission behavior.
+
+### Concepts Covered
+
+- AWS IAM
+- IAM users
+- IAM policies
+- Identity-based policies
+- Permissions
+- Allow statements
+- Explicit Deny
+- Policy evaluation
+- Least Privilege
 - Amazon S3 permissions
+- Access control
 
+### Security Principle Demonstrated
 
-- `s3:*`
+The experiment demonstrates the **Principle of Least Privilege**, where an identity should receive only the permissions necessary to perform its intended tasks.
 
-
-- `s3:DeleteBucket`
-
-
-- Principle of Least Privilege
-
-
-- Identity-based access control
-
-
-- Permission testing and verification
-
-
-
-### AWS Services Used
-
-
-
-- AWS Identity and Access Management (IAM)
-
-
-- Amazon S3
-
-
+The practical also demonstrates that an **explicit Deny overrides an Allow** when AWS evaluates permissions.
 
 📁 Detailed documentation is available in [`experiment-3/README.md`](experiment-3/README.md).
 
+---
 
+## 🪣 Experiment 4 — Creating Buckets and Managing Objects
+
+**Topic:** Creating Amazon S3 buckets and managing objects using the AWS Management Console.
+
+### Key Work
+
+- Opened the Amazon S3 service from the AWS Management Console.
+- Created an S3 bucket with a valid globally unique name.
+- Selected the required AWS Region.
+- Reviewed bucket configuration settings.
+- Reviewed Object Ownership settings.
+- Reviewed S3 Block Public Access settings.
+- Opened the newly created bucket.
+- Navigated to the Objects section.
+- Uploaded files into the S3 bucket.
+- Verified the uploaded objects.
+- Inspected object information and properties.
+- Performed basic object-management operations.
+- Verified the final bucket and object state.
+
+### Concepts Covered
+
+- Amazon S3
+- Buckets
+- Objects
+- Object keys
+- AWS Regions
+- Object storage
+- Storage classes
+- Object metadata
+- Object management
+- S3 security
+- Block Public Access
+- S3 versioning concepts
+- Cloud storage
+
+### Practical Workflow
+
+```text
+AWS Management Console
+        │
+        ▼
+     Amazon S3
+        │
+        ▼
+   Create Bucket
+        │
+        ▼
+ Configure Settings
+        │
+        ▼
+    Open Bucket
+        │
+        ▼
+    Upload Object
+        │
+        ▼
+   Inspect Object
+        │
+        ▼
+   Manage Object
+        │
+        ▼
+ Final Verification
+```
+
+📁 Detailed documentation is available in [`experiment-4/README.md`](experiment-4/README.md).
 
 ---
 
+# 📊 Experiments Comparison
 
+| Area | Experiment 1 | Experiment 2 | Experiment 3 | Experiment 4 |
+|---|---|---|---|---|
+| **Primary Service** | S3 + CloudFront | EC2 | IAM | S3 |
+| **Main Concept** | Static Content Delivery | Cloud Compute | Identity & Access Control | Object Storage |
+| **Storage** | S3 | EBS / Instance Storage | S3 Permissions | S3 Objects |
+| **Compute** | — | EC2 | — | — |
+| **Networking** | CloudFront Delivery | Security Group | IAM Authorization | S3 Access |
+| **Security** | Private S3 Origin + HTTPS | Security Group | IAM Policies + Explicit Deny | Block Public Access + IAM |
+| **Main Output** | Deployed Website | Running Linux VM | Controlled AWS Permissions | Managed S3 Bucket and Objects |
+| **Status** | ✅ Completed | ✅ Completed | ✅ Completed | ✅ Completed |
 
-## 🛠️ Technologies & Services
+---
 
+# 🛠️ Technologies & Services
 
+The repository currently uses or demonstrates the following AWS services and technologies:
 
 ### AWS Services
 
+- **Amazon S3**
+- **Amazon CloudFront**
+- **Amazon EC2**
+- **AWS Identity and Access Management (IAM)**
+- **Amazon EBS**
+- **EC2 Instance Connect**
+- **Security Groups**
 
+### Supporting Technologies
 
-- **Amazon Web Services (AWS)**
-
-
-- Amazon S3
-
-
-- Amazon CloudFront
-
-
-- Amazon EC2
-
-
-- AWS Identity and Access Management (IAM)
-
-
-- EC2 Instance Connect
-
-
-- Security Groups
-
-
-
-### Operating Systems & Tools
-
-
-
-- Amazon Linux 2023
-
-
+- Amazon Linux
 - Linux command line
+- AWS Management Console
+- HTTPS
+- IAM policy JSON
+- Cloud object storage
 
+---
+
+# 🔐 Security Concepts Covered
+
+Security is an important component of the practical work in this repository.
+
+The experiments introduce several fundamental AWS security concepts:
+
+### Identity and Access Management
+
+IAM is used to control which AWS identities can access which resources and what actions they are allowed to perform.
+
+### Least Privilege
+
+Permissions should be limited to only what is required for a particular task.
+
+### Explicit Deny
+
+An explicit `Deny` in an applicable IAM policy overrides an applicable `Allow`.
+
+### S3 Public Access Protection
+
+S3 Block Public Access helps prevent accidental public exposure of buckets and objects.
+
+### Security Groups
+
+EC2 Security Groups act as virtual firewalls controlling inbound and outbound traffic associated with instances.
+
+### Secure Content Delivery
+
+CloudFront can provide HTTPS-based delivery for content distributed from cloud storage.
+
+---
+
+# 🎯 Repository Purpose
+
+The main objective of this repository is to build practical understanding of AWS infrastructure and cloud application development by:
+
+**Creating → Configuring → Deploying → Accessing → Managing → Securing → Verifying**
+
+cloud resources rather than studying the concepts only theoretically.
+
+Each experiment is designed to provide hands-on exposure to a different part of the AWS ecosystem.
+
+---
+
+# 📈 Learning Progression
+
+The experiments collectively demonstrate a progression from basic cloud resource creation to application-oriented cloud management:
+
+```text
+Experiment 1
+S3 + CloudFront
+       │
+       ▼
+Static Content Delivery
+       │
+       ▼
+Experiment 2
+EC2
+       │
+       ▼
+Cloud Compute
+       │
+       ▼
+Experiment 3
+IAM
+       │
+       ▼
+Identity & Access Control
+       │
+       ▼
+Experiment 4
+S3 Bucket & Objects
+       │
+       ▼
+Cloud Object Storage Management
+```
+
+Together, these experiments establish practical foundations for working with AWS-based cloud applications.
+
+---
+
+# 📚 Key Learning Areas
+
+By completing the experiments in this repository, the following areas are covered:
 
 - AWS Management Console
-
-
-
-### Core Cloud Concepts
-
-
-
-- Object Storage
-
-
-- Content Delivery Networks
-
-
-- Cloud Computing
-
-
-- Virtual Machines
-
-
-- Network Security
-
-
-- Identity and Access Management
-
-
-- Authentication
-
-
-- Authorization
-
-
-- Access Policies
-
-
-- Least Privilege
-
-
-- Cloud Security
-
-
-
----
-
-
-
-## 🎯 Purpose
-
-
-
-The main objective of this repository is to build practical understanding of AWS infrastructure and cloud services by **creating, configuring, accessing, securing, and validating cloud resources** rather than only studying the concepts theoretically.
-
-
-
-The experiments progressively demonstrate different layers of cloud computing:
-
-
-
-```text
-
-Experiment 1
-
-Amazon S3 + CloudFront
-
-        ↓
-
-Static Application Storage & Delivery
-
-
-
-Experiment 2
-
-Amazon EC2
-
-        ↓
-
-Compute & Virtual Machine Infrastructure
-
-
-
-Experiment 3
-
-AWS IAM
-
-        ↓
-
-Identity, Authorization & Cloud Security
-
-```
-
-
-
-Together, these experiments provide practical exposure to:
-
-
-
-```text
-
-Storage
-
-   +
-
-Content Delivery
-
-   +
-
-Compute
-
-   +
-
-Networking
-
-   +
-
-Identity
-
-   +
-
-Access Control
-
-   +
-
-Security
-
-```
-
-
-
----
-
-
-
-## 🧠 Learning Progression
-
-
-
-The repository follows a practical cloud-development progression:
-
-
-
-### 1️⃣ Store and Deliver
-
-
-
-**S3 + CloudFront**
-
-
-
-Learn how static application files can be stored in cloud object storage and distributed through a CDN.
-
-
-
-### 2️⃣ Compute and Access
-
-
-
-**EC2**
-
-
-
-Learn how to launch, configure, connect to, and inspect a cloud-based virtual machine.
-
-
-
-### 3️⃣ Secure and Control
-
-
-
-**IAM**
-
-
-
-Learn how identities and policies control access to cloud resources and how permissions can be restricted using explicit security rules.
-
-
-
-This creates a foundation for understanding larger AWS architectures where compute, storage, networking, application delivery, and security work together.
-
-
-
----
-
-
-
-## 📊 Experiment Summary
-
-| Area | Experiment 1 | Experiment 2 | Experiment 3 |
-|---|---|---|---|
-| Primary Service | S3 + CloudFront | EC2 | IAM |
-| Main Concept | Static Content Delivery | Cloud Compute | Identity & Access Control |
-| Storage | S3 | EBS / Instance Storage | S3 Permissions |
-| Compute | — | EC2 | — |
-| Networking | CloudFront Delivery | Security Group | IAM Authorization |
-| Security | Private S3 Origin + HTTPS | Security Group | IAM Policies + Explicit Deny |
-| Main Output | Deployed Website | Running Linux VM | Controlled AWS Permissions |
-| Status | ✅ Completed | ✅ Completed | ✅ Completed |
-
----
-
-
-
-## 📁 Experiment Documentation
-
-
-
-Each experiment contains its own detailed documentation.
-
-
-
-### Experiment 1
-
-
-
-```text
-
-experiment-1/
-
-└── README.md
-
-```
-
-
-
-Covers:
-
-
-
-- S3 bucket creation
-
-
-- Static website files
-
-
-- CloudFront origin configuration
-
-
-- Private S3 access
-
-
-- Default root object
-
-
-- CDN deployment
-
-
-- HTTPS access
-
-
-- Testing and verification
-
-
-
-### Experiment 2
-
-
-
-```text
-
-experiment-2/
-
-└── README.md
-
-```
-
-
-
-Covers:
-
-
-
-- EC2 instance creation
-
-
-- Amazon Linux 2023
-
-
-- Instance configuration
-
-
+- Cloud object storage
+- Static website delivery
+- Content delivery networks
+- Cloud computing
+- Virtual machines
+- Linux-based cloud instances
 - Security Groups
-
-
-- EC2 Instance Connect
-
-
-- Linux system inspection
-
-
-- Compute resource verification
-
-
-
-### Experiment 3
-
-
-
-```text
-
-experiment-3/
-
-└── README.md
-
-```
-
-
-
-Covers:
-
-
-
-- IAM service
-
-
 - IAM users
-
-
-- User permissions
-
-
 - IAM policies
-
-
-- Policy JSON
-
-
-- S3 authorization
-
-
+- Permission evaluation
 - Explicit Deny
-
-
-- `s3:DeleteBucket` restriction
-
-
-- Least privilege
-
-
-- Permission testing
-
-
-- Cloud security concepts
-
-
+- Least Privilege
+- S3 buckets
+- S3 objects
+- Object keys
+- Storage classes
+- Basic cloud security
+- Resource management
 
 ---
 
-
-
-## 🔒 Security Focus
-
-
-
-Security is an important component of the experiments in this repository.
-
-
-
-The practical work demonstrates security at multiple levels:
-
-
-
-```text
-
-Experiment 1
-
-        ↓
-
-Private S3 Origin
-
-        +
-
-HTTPS CloudFront Delivery
-
-
-
-Experiment 2
-
-        ↓
-
-EC2 Security Group
-
-        +
-
-Controlled Network Access
-
-
-
-Experiment 3
-
-        ↓
-
-IAM Users
-
-        +
-
-IAM Policies
-
-        +
-
-Least Privilege
-
-        +
-
-Explicit Deny
-
-```
-
-
-
-These examples demonstrate that cloud security is not a single configuration. It involves protecting storage, controlling network access, and managing identity and authorization.
-
-
-
----
-
-
-
-## 🚀 Future Experiments
-
-
-
-The repository can be extended with additional AWS experiments covering areas such as:
-
-
-
-- Amazon VPC
-
-
-- Subnets
-
-
-- Route Tables
-
-
-- Internet Gateways
-
-
-- NAT Gateways
-
-
-- AWS Lambda
-
-
-- API Gateway
-
-
-- Amazon DynamoDB
-
-
-- Amazon RDS
-
-
-- AWS CloudWatch
-
-
-- AWS CloudTrail
-
-
-- AWS WAF
-
-
-- Route 53
-
-
-- Auto Scaling
-
-
-- Elastic Load Balancing
-
-
-- Docker and container deployment
-
-
-- CI/CD pipelines
-
-
-- Infrastructure as Code
-
-
-- AWS DevSecOps
-
-
-
----
-
-
-
-## 🎯 Repository Goals
-
-
-
-The long-term goal of this repository is to build a structured practical reference for AWS cloud development and security.
-
-
-
-The experiments are intended to demonstrate the complete cloud workflow:
-
-
-
-```text
-
-Learn
-
-  ↓
-
-Configure
-
-  ↓
-
-Deploy
-
-  ↓
-
-Access
-
-  ↓
-
-Secure
-
-  ↓
-
-Test
-
-  ↓
-
-Verify
-
-  ↓
-
-Document
-
-```
-
-
-
-Rather than only recording theoretical definitions, each experiment focuses on actually interacting with AWS services and understanding how the services behave in a real cloud environment.
-
-
-
----
-
-
-
-## 👨‍💻 Author
-
-
+# 👨‍💻 Author
 
 **Nitanshu Tak**
 
-
-
-B.Tech — Computer Science Engineering
-
-
-
+B.Tech — Computer Science Engineering  
 Cloud Computing & Virtualization Technology
-
-
 
 ---
 
-
-
-> 🚀 **Cloud Development Lab — Learn → Build → Secure → Deploy → Verify**
+> 🚀 **Cloud Application Development Lab — Learn → Build → Deploy → Manage → Secure → Verify**
