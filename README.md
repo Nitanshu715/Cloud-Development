@@ -1,717 +1,2200 @@
-# ☁️ AWS Cloud Application Development Lab
+# ☁️ Cloud Application Development Lab
 
-> A practical collection of AWS cloud experiments covering cloud storage, content delivery, compute, identity and access management, object management, security fundamentals, and multi-region cloud resilience.
+ 
 
 <p align="center">
+
   <img src="https://img.shields.io/badge/AWS-Cloud%20Application%20Development-orange?logo=amazonaws&logoColor=white" alt="AWS">
-  <img src="https://img.shields.io/badge/Cloud-Application%20Development-blue" alt="Cloud Application Development">
-  <img src="https://img.shields.io/badge/AWS%20Experiments-5-purple" alt="Five AWS Experiments">
+
+  <img src="https://img.shields.io/badge/Experiments-5-blue" alt="5 Experiments">
+
+  <img src="https://img.shields.io/badge/Platform-Amazon%20Web%20Services-yellow?logo=amazonaws&logoColor=white" alt="AWS">
+
+  <img src="https://img.shields.io/badge/Console-AWS%20Management%20Console-purple" alt="AWS Console">
+
   <img src="https://img.shields.io/badge/Status-Completed-success" alt="Completed">
+
 </p>
 
+ 
+
 <p align="center">
-  <b>Learn → Build → Deploy → Manage → Secure → Replicate → Verify</b>
+
+  <b>Hands-on AWS Cloud Application Development</b><br>
+
+  <sub>Compute • Identity • Object Storage • Cloud Infrastructure • Multi-Region Resilience</sub>
+
 </p>
+
+ 
+
+<p align="center">
+
+  <a href="#-experiments">Experiments</a> •
+
+  <a href="#-repository-structure">Structure</a> •
+
+  <a href="#-learning-progression">Learning Path</a> •
+
+  <a href="#-security-focus">Security</a>
+
+</p>
+
+ 
 
 ---
+
+ 
 
 ## 📌 About
 
-This repository contains the practical experiments performed as part of the **Cloud Application Development Lab**.
+ 
 
-Each experiment focuses on understanding and implementing an AWS cloud service or concept through the **AWS Management Console** and, where required, supporting command-line or development tools.
+This repository contains the practical work completed for the **Cloud Application Development Lab** using **Amazon Web Services (AWS)**.
 
-The repository is organized experiment-wise so that every practical can be accessed, documented, and reviewed independently.
+ 
 
-The experiments progressively cover important cloud application-development concepts including:
+The repository is organized experiment-wise, with each practical documented independently through its own `README.md`, implementation notes, configuration details, observations, and screenshot evidence.
 
-- Cloud storage
-- Content delivery
-- Cloud computing
-- Virtual machines
-- Identity and access management
-- Object storage
-- AWS resource configuration
-- Cloud security fundamentals
-- Data replication
-- Multi-region architecture
-- Backup and disaster-recovery concepts
-- Cloud resource lifecycle management
+ 
+
+The experiments focus on learning cloud concepts by actually creating, configuring, accessing, managing, securing, verifying, and cleaning up AWS resources rather than studying the services only theoretically.
+
+ 
+
+### The repository covers
+
+ 
+
+- ☁️ Cloud computing
+
+- 🖥️ Virtual machines
+
+- 🔐 Identity and access management
+
+- 🪣 Object storage
+
+- 🌐 Cloud infrastructure
+
+- 🔄 Data replication
+
+- 🌍 Multi-region resilience
+
+- 🛡️ Basic cloud security
+
+- 🧪 Practical verification
+
+- 📸 Screenshot-based documentation
+
+- 🧹 AWS resource cleanup and cost awareness
+
+ 
 
 ---
+
+ 
+
+# 🎯 Repository Objective
+
+ 
+
+The main objective is to build a practical foundation in AWS cloud application development through progressive hands-on experiments.
+
+ 
+
+The overall workflow followed throughout the repository is:
+
+ 
+
+```text
+
+            LEARN
+
+              │
+
+              ▼
+
+          CONFIGURE
+
+              │
+
+              ▼
+
+           CREATE
+
+              │
+
+              ▼
+
+            ACCESS
+
+              │
+
+              ▼
+
+           MANAGE
+
+              │
+
+              ▼
+
+           SECURE
+
+              │
+
+              ▼
+
+            TEST
+
+              │
+
+              ▼
+
+           VERIFY
+
+              │
+
+              ▼
+
+          DOCUMENT
+
+              │
+
+              ▼
+
+          CLEAN UP
+
+```
+
+ 
+
+Each experiment adds another layer to the understanding of cloud-based application infrastructure.
+
+ 
+
+---
+
+ 
 
 # 🧪 Experiments
 
-| Experiment | Topic | Primary AWS Service(s) | Status |
-|---|---|---|---|
-| **Experiment 1** | Amazon S3 + CloudFront — Static Website Delivery | S3, CloudFront | ✅ Completed |
-| **Experiment 2** | Introduction to Amazon EC2 | EC2, Security Groups | ✅ Completed |
-| **Experiment 3** | Introduction to AWS IAM — Identity, Users & Access Policies | IAM, S3 | ✅ Completed |
-| **Experiment 4** | Creating Buckets and Managing Objects in AWS | S3 | ✅ Completed |
-| **Experiment 5** | Implementing Multi-Region Backup in Amazon S3 Using Cross-Region Replication | S3, IAM, S3 Batch Operations | ✅ Completed |
+ 
+
+| # | Experiment | Primary AWS Service | Core Focus | Status |
+
+|---|---|---|---|---|
+
+| **01** | [Introduction to Amazon EC2](./experiment-1/README.md) | Amazon EC2 | Cloud VM, AMI, instance configuration, Security Groups, remote access | ✅ Completed |
+
+| **02** | [Introduction to AWS IAM](./experiment-2/README.md) | AWS IAM | Users, policies, authentication, authorization, explicit Deny, least privilege | ✅ Completed |
+
+| **03** | [Creating Buckets and Managing Objects](./experiment-3/README.md) | Amazon S3 | Buckets, objects, object keys, uploads, management, S3 security | ✅ Completed |
+
+| **04** | [Introduction to Amazon EC2 — GCE → AWS](./experiment-4/README.md) | Amazon EC2 | Google Compute Engine assignment adapted to AWS EC2 | ✅ Completed |
+
+| **05** | [Multi-Region S3 Backup Using Cross-Region Replication](./experiment-5/README.md) | Amazon S3 | Versioning, CRR, Batch Replication, IAM roles, resilience | ✅ Completed |
+
+ 
 
 ---
+
+ 
 
 # 📂 Repository Structure
 
+ 
+
 ```text
+
 cloud-application-development/
+
 │
+
+├── README.md
+
+│
+
 ├── experiment-1/
-│   └── README.md
+
+│   ├── README.md
+
+│   └── screenshots/
+
 │
+
 ├── experiment-2/
-│   └── README.md
+
+│   ├── README.md
+
+│   └── screenshots/
+
 │
+
 ├── experiment-3/
-│   └── README.md
+
+│   ├── README.md
+
+│   └── screenshots/
+
 │
+
 ├── experiment-4/
-│   └── README.md
+
+│   ├── README.md
+
+│   └── screenshots/
+
 │
-├── experiment-5/
-│   └── README.md
-│
-└── README.md
+
+└── experiment-5/
+
+    ├── README.md
+
+    ├── screenshots/
+
+    └── notes/
+
 ```
 
----
+ 
 
-# ☁️ Experiments Overview
+> Each experiment is intentionally self-contained so that the practical, its explanation, and its evidence can be reviewed independently.
 
-## 🌐 Experiment 1 — S3 + CloudFront
-
-**Topic:** Static Website Hosting and Content Delivery using Amazon S3 and Amazon CloudFront.
-
-### Key Work
-
-- Created an Amazon S3 bucket for website content.
-- Configured the required S3 bucket settings.
-- Connected the S3 bucket with Amazon CloudFront.
-- Configured CloudFront with the S3 bucket as the origin.
-- Used private S3 access through the CloudFront delivery architecture.
-- Configured the default root object as `index.html`.
-- Created and deployed a CloudFront distribution.
-- Verified the CloudFront distribution and website delivery.
-
-### Concepts Covered
-
-- Amazon S3
-- Amazon CloudFront
-- Object storage
-- Static website content
-- Content delivery networks
-- CloudFront distributions
-- S3 origin configuration
-- Secure content delivery
-
-📁 Detailed documentation is available in [`experiment-1/README.md`](experiment-1/README.md).
+ 
 
 ---
 
-## 🖥️ Experiment 2 — Introduction to Amazon EC2
+ 
 
-**Topic:** Launching and accessing a cloud-based virtual machine using Amazon EC2.
+# 🧭 Experiments Overview
 
-### Key Work
+ 
 
-- Launched a free-tier eligible `t3.micro` EC2 instance.
-- Used Amazon Linux 2023.
-- Configured a Security Group for SSH access.
-- Connected to the EC2 instance using EC2 Instance Connect.
-- Inspected the running Linux environment.
-- Used Linux commands to inspect system and instance information.
-- Examined CPU, memory, storage, operating system, hostname, and network information.
+## 01 — 🖥️ Introduction to Amazon EC2
 
-### Concepts Covered
+ 
+
+### What this experiment covers
+
+ 
+
+The first experiment introduces **Amazon Elastic Compute Cloud (Amazon EC2)** and the fundamental workflow of launching and working with a cloud-based Linux virtual machine.
+
+ 
+
+The practical focuses on understanding how a cloud VM is provisioned, secured, accessed remotely, and inspected.
+
+ 
+
+### Key work
+
+ 
+
+- Opened the Amazon EC2 service
+
+- Selected the required AWS Region
+
+- Selected an Amazon Machine Image (AMI)
+
+- Selected an EC2 instance type
+
+- Launched an EC2 instance
+
+- Configured a Security Group
+
+- Allowed SSH access through port `22`
+
+- Waited for the instance to reach the `Running` state
+
+- Connected using **EC2 Instance Connect**
+
+- Inspected the Linux operating system
+
+- Verified CPU, memory, storage, hostname, and network configuration
+
+- Cleaned up the resource after completion
+
+ 
+
+### Core workflow
+
+ 
+
+```text
+
+AWS Management Console
+
+        │
+
+        ▼
+
+   Launch EC2
+
+        │
+
+        ├── AMI
+
+        ├── Instance Type
+
+        └── Security Group
+
+                │
+
+                ▼
+
+          Running Instance
+
+                │
+
+                ▼
+
+       EC2 Instance Connect
+
+                │
+
+                ▼
+
+       Linux System Inspection
+
+                │
+
+                ▼
+
+             Cleanup
+
+```
+
+ 
+
+### Concepts practiced
+
+ 
 
 - Amazon EC2
-- Cloud computing
-- Virtual machines
-- Amazon Linux
+
+- AMIs
+
 - Instance types
+
+- Virtual machines
+
 - Security Groups
+
 - SSH
+
 - EC2 Instance Connect
+
 - Linux command line
-- Cloud compute resources
 
-📁 Detailed documentation is available in [`experiment-2/README.md`](experiment-2/README.md).
+- Cloud resource lifecycle
 
----
+ 
 
-## 🔐 Experiment 3 — Introduction to AWS IAM
+### Linux commands practiced
 
-**Topic:** Identity, Users, Access Policies, and Permission Management using AWS IAM.
-
-### Key Work
-
-- Explored AWS Identity and Access Management (IAM).
-- Created and configured IAM users.
-- Examined identity-based permissions.
-- Assigned permissions using IAM policies.
-- Worked with Amazon S3 permissions.
-- Modified an S3-related policy to restrict a specific action.
-- Demonstrated the difference between an allowed action and an explicitly denied action.
-- Restricted the `s3:DeleteBucket` operation while retaining other required S3 access.
-- Verified the resulting permission behavior.
-
-### Concepts Covered
-
-- AWS IAM
-- IAM users
-- IAM policies
-- Identity-based policies
-- Permissions
-- Allow statements
-- Explicit Deny
-- Policy evaluation
-- Least Privilege
-- Amazon S3 permissions
-- Access control
-
-### Security Principle Demonstrated
-
-The experiment demonstrates the **Principle of Least Privilege**, where an identity should receive only the permissions necessary to perform its intended tasks.
-
-The practical also demonstrates that an **explicit `Deny` overrides an `Allow`** when AWS evaluates permissions.
-
-📁 Detailed documentation is available in [`experiment-3/README.md`](experiment-3/README.md).
-
----
-
-## 🪣 Experiment 4 — Creating Buckets and Managing Objects
-
-**Topic:** Creating Amazon S3 buckets and managing objects using the AWS Management Console.
-
-### Key Work
-
-- Opened the Amazon S3 service from the AWS Management Console.
-- Created an S3 bucket with a valid globally unique name.
-- Selected the required AWS Region.
-- Reviewed bucket configuration settings.
-- Reviewed Object Ownership settings.
-- Reviewed S3 Block Public Access settings.
-- Opened the newly created bucket.
-- Navigated to the Objects section.
-- Uploaded files into the S3 bucket.
-- Verified the uploaded objects.
-- Inspected object information and properties.
-- Performed basic object-management operations.
-- Verified the final bucket and object state.
-
-### Concepts Covered
-
-- Amazon S3
-- Buckets
-- Objects
-- Object keys
-- AWS Regions
-- Object storage
-- Storage classes
-- Object metadata
-- Object management
-- S3 security
-- Block Public Access
-- S3 versioning concepts
-- Cloud storage
-
-### Practical Workflow
+ 
 
 ```text
-AWS Management Console
-        │
-        ▼
-     Amazon S3
-        │
-        ▼
-    Create Bucket
-        │
-        ▼
-  Configure Settings
-        │
-        ▼
-     Open Bucket
-        │
-        ▼
-     Upload Object
-        │
-        ▼
-    Inspect Object
-        │
-        ▼
-    Manage Object
-        │
-        ▼
-  Final Verification
+
+whoami
+
+pwd
+
+cat /etc/os-release
+
+hostname
+
+lscpu
+
+free -h
+
+df -h
+
+ip addr
+
 ```
 
-📁 Detailed documentation is available in [`experiment-4/README.md`](experiment-4/README.md).
+ 
+
+📁 **Detailed documentation:** [Experiment 1 README](./experiment-1/README.md)
+
+ 
 
 ---
 
-# 🌍 Experiment 5 — S3 Cross-Region Replication
+ 
 
-**Topic:** Implementing Multi-Region Backup in Amazon S3 Using Cross-Region Replication.
+## 02 — 🔐 Introduction to AWS IAM
 
-### 🎯 Aim
+ 
 
-To implement a multi-region backup mechanism for Amazon S3 by configuring **Cross-Region Replication (CRR)** between a source bucket in `us-east-1` and a destination bucket in `ap-south-1`, and to verify that objects can be replicated across AWS Regions.
+### What this experiment covers
 
-### 🧩 Practical Configuration
+ 
+
+The second experiment introduces **AWS Identity and Access Management (IAM)** and demonstrates how AWS identities and policies control access to cloud resources.
+
+ 
+
+The practical work focused on users, permissions, policies, authentication, authorization, explicit Deny, and the principle of least privilege.
+
+ 
+
+### Key work
+
+ 
+
+- Opened AWS IAM
+
+- Created and managed IAM users
+
+- Reviewed IAM user configurations
+
+- Examined permissions
+
+- Explored IAM policies
+
+- Studied JSON-based policy statements
+
+- Used Amazon S3 permissions as a practical authorization example
+
+- Worked with broad permissions such as `s3:*`
+
+- Restricted the high-impact `s3:DeleteBucket` operation
+
+- Demonstrated explicit `Deny` precedence
+
+- Applied least-privilege thinking
+
+- Verified the resulting permission behavior
+
+ 
+
+### IAM authorization model
+
+ 
+
+```text
+
+                Requester
+
+                    │
+
+                    ▼
+
+             Authentication
+
+                    │
+
+                    ▼
+
+                Identity
+
+                    │
+
+                    ▼
+
+              Authorization
+
+                    │
+
+                    ▼
+
+              IAM Policies
+
+                    │
+
+                    ▼
+
+              AWS Resource
+
+```
+
+ 
+
+### Explicit Deny demonstration
+
+ 
+
+```text
+
+        Allow: s3:*
+
+              +
+
+  Deny: s3:DeleteBucket
+
+              │
+
+              ▼
+
+   DeleteBucket = DENIED
+
+```
+
+ 
+
+The practical demonstrated that an applicable explicit `Deny` overrides an applicable `Allow`.
+
+ 
+
+### Policy model practiced
+
+ 
+
+```json
+
+{
+
+  "Version": "2012-10-17",
+
+  "Statement": [
+
+    {
+
+      "Sid": "AllowS3Access",
+
+      "Effect": "Allow",
+
+      "Action": "s3:*",
+
+      "Resource": "*"
+
+    },
+
+    {
+
+      "Sid": "DenyBucketDeletion",
+
+      "Effect": "Deny",
+
+      "Action": "s3:DeleteBucket",
+
+      "Resource": "*"
+
+    }
+
+  ]
+
+}
+
+```
+
+ 
+
+### Core security concepts
+
+ 
+
+- Authentication
+
+- Authorization
+
+- IAM users
+
+- IAM policies
+
+- Policy statements
+
+- `Effect`
+
+- `Action`
+
+- `Resource`
+
+- Allow
+
+- Explicit Deny
+
+- Least privilege
+
+- S3 authorization
+
+ 
+
+📁 **Detailed documentation:** [Experiment 2 README](./experiment-2/README.md)
+
+ 
+
+---
+
+ 
+
+## 03 — 🪣 Creating Buckets and Managing Objects
+
+ 
+
+### What this experiment covers
+
+ 
+
+The third experiment focuses on **Amazon Simple Storage Service (Amazon S3)** and introduces the fundamentals of cloud object storage.
+
+ 
+
+The practical was performed using the **AWS Management Console** and covers the creation of an S3 bucket and basic object-management operations.
+
+ 
+
+### Key work
+
+ 
+
+- Opened Amazon S3
+
+- Created an S3 bucket
+
+- Selected an AWS Region
+
+- Reviewed bucket configuration
+
+- Reviewed public-access protection
+
+- Uploaded files as S3 objects
+
+- Viewed stored objects
+
+- Inspected object properties
+
+- Performed object-management operations
+
+- Understood object keys
+
+- Reviewed basic S3 security
+
+- Verified the final bucket and object state
+
+ 
+
+### S3 architecture
+
+ 
+
+```text
+
+AWS Account
+
+     │
+
+     ▼
+
+ Amazon S3
+
+     │
+
+     ▼
+
+   Bucket
+
+     │
+
+     ├── Object
+
+     ├── Object
+
+     └── Object
+
+```
+
+ 
+
+### Bucket vs Object
+
+ 
+
+| Component | Meaning |
+
+|---|---|
+
+| **Bucket** | Logical container for S3 objects |
+
+| **Object** | Actual stored data |
+
+| **Object Key** | Unique name/path-like identifier for an object |
+
+| **Region** | AWS Region where the bucket is created |
+
+| **Metadata** | Information associated with the object |
+
+ 
+
+### Typical object workflow
+
+ 
+
+```text
+
+Create Bucket
+
+      │
+
+      ▼
+
+Upload Object
+
+      │
+
+      ▼
+
+View / Inspect
+
+      │
+
+      ▼
+
+Manage Object
+
+      │
+
+      ▼
+
+Verify
+
+```
+
+ 
+
+### Security concepts
+
+ 
+
+- Block Public Access
+
+- IAM permissions
+
+- Bucket policies
+
+- Object ownership
+
+- Encryption
+
+- HTTPS/TLS
+
+- Least privilege
+
+ 
+
+📁 **Detailed documentation:** [Experiment 3 README](./experiment-3/README.md)
+
+ 
+
+---
+
+ 
+
+## 04 — 🖥️ Introduction to Amazon EC2 — Changed from Google Compute Engine
+
+ 
+
+### Why this experiment exists
+
+ 
+
+This experiment was originally designed around **Google Compute Engine (GCE)**.
+
+ 
+
+Because GCP access was not available for the practical, the assignment was implemented using the AWS equivalent: **Amazon EC2**.
+
+ 
+
+The experiment therefore demonstrates the same broad cloud-compute idea using AWS infrastructure.
+
+ 
+
+> **Original platform:** Google Cloud Platform / Google Compute Engine  
+
+> **Implemented platform:** Amazon Web Services / Amazon EC2
+
+ 
+
+### AWS configuration used
+
+ 
+
+| Parameter | Configuration |
+
+|---|---|
+
+| AWS Service | Amazon EC2 |
+
+| Region | Asia Pacific (Mumbai) — `ap-south-1` |
+
+| Instance Type | `t3.micro` |
+
+| Operating System | Amazon Linux 2023 |
+
+| Access Method | EC2 Instance Connect |
+
+| Security | Security Group + SSH |
+
+| SSH Port | `22` |
+
+ 
+
+### Practical workflow
+
+ 
+
+```text
+
+AWS Console
+
+     │
+
+     ▼
+
+Launch EC2 Instance
+
+     │
+
+     ├── Amazon Linux 2023
+
+     ├── t3.micro
+
+     └── Security Group
+
+              │
+
+              ▼
+
+        SSH / Port 22
+
+              │
+
+              ▼
+
+      EC2 Instance Connect
+
+              │
+
+              ▼
+
+     Linux System Inspection
+
+```
+
+ 
+
+### Steps performed
+
+ 
+
+1. Opened Amazon EC2.
+
+2. Selected Mumbai (`ap-south-1`).
+
+3. Launched a `t3.micro` instance.
+
+4. Selected Amazon Linux 2023.
+
+5. Configured SSH access on port `22`.
+
+6. Waited for the instance to reach `Running`.
+
+7. Connected through EC2 Instance Connect.
+
+8. Inspected the Linux system.
+
+9. Verified OS, CPU, memory, storage, hostname, and network information.
+
+10. Cleaned up the AWS resource after completion.
+
+ 
+
+### Concepts reinforced
+
+ 
+
+- Cloud virtual machines
+
+- Amazon EC2
+
+- AMIs
+
+- Instance types
+
+- Security Groups
+
+- SSH
+
+- EC2 Instance Connect
+
+- Linux system inspection
+
+- AWS resource lifecycle
+
+ 
+
+### Platform mapping
+
+ 
+
+```text
+
+Google Cloud
+
+     │
+
+     ▼
+
+Google Compute Engine
+
+     │
+
+     │  Assignment adapted to AWS
+
+     ▼
+
+Amazon Web Services
+
+     │
+
+     ▼
+
+Amazon EC2
+
+```
+
+ 
+
+This experiment reinforces the idea that the fundamental cloud-compute workflow remains similar across major cloud providers even though service names and console interfaces differ.
+
+ 
+
+📁 **Detailed documentation:** [Experiment 4 README](./experiment-4/README.md)
+
+ 
+
+---
+
+ 
+
+## 05 — 🌍 Multi-Region S3 Backup Using Cross-Region Replication
+
+ 
+
+### What this experiment covers
+
+ 
+
+The fifth experiment extends the S3 knowledge from Experiment 3 into a **multi-region backup and resilience architecture**.
+
+ 
+
+The practical uses two Amazon S3 buckets located in different AWS Regions.
+
+ 
+
+### Architecture
+
+ 
+
+```text
+
+┌─────────────────────────────────────────┐
+
+│ SOURCE                                  │
+
+│ US East (N. Virginia) — us-east-1      │
+
+│                                         │
+
+│ cad-exp4-source-nitanshu                │
+
+└───────────────────┬─────────────────────┘
+
+                    │
+
+                    │ S3 Cross-Region
+
+                    │ Replication (CRR)
+
+                    │
+
+                    ▼
+
+┌─────────────────────────────────────────┐
+
+│ DESTINATION                             │
+
+│ Asia Pacific (Mumbai) — ap-south-1     │
+
+│                                         │
+
+│ cad-exp4-destination-nitanshu           │
+
+└─────────────────────────────────────────┘
+
+```
+
+ 
+
+### Practical configuration
+
+ 
 
 | Component | Configuration |
+
 |---|---|
+
 | AWS Service | Amazon S3 |
-| Source bucket | `cad-exp4-source-nitanshu` |
-| Source Region | `us-east-1` — US East (N. Virginia) |
-| Destination bucket | `cad-exp4-destination-nitanshu` |
-| Destination Region | `ap-south-1` — Asia Pacific (Mumbai) |
-| Replication type | Cross-Region Replication (CRR) |
-| Account relationship | Same AWS account |
+
+| Source Bucket | `cad-exp4-source-nitanshu` |
+
+| Source Region | `us-east-1` |
+
+| Destination Bucket | `cad-exp4-destination-nitanshu` |
+
+| Destination Region | `ap-south-1` |
+
+| Replication | Cross-Region Replication |
+
+| Account | Same AWS account |
+
 | Versioning | Enabled on both buckets |
-| Replication rule | `CRR-to-ap-south-1` |
-| Rule status | Enabled |
-| Replication scope | All objects |
-| Test object | `scheduler.pdf` |
-| Existing-object mechanism | S3 Batch Replication |
-| Completion | Verified and cleaned up |
 
-> **Note:** The resource names above document the completed practical configuration. Temporary lab resources were cleaned up after verification.
+| Replication Rule | `CRR-to-ap-south-1` |
 
-### 🗺️ Architecture
+| Rule Status | Enabled |
 
-```text
-┌───────────────────────────────────────┐
-│ 🇺🇸 SOURCE REGION                     │
-│ US East (N. Virginia) — us-east-1   │
-│                                       │
-│ cad-exp4-source-nitanshu              │
-└───────────────────┬───────────────────┘
-                    │
-                    │ S3 Cross-Region
-                    │ Replication (CRR)
-                    ▼
-┌───────────────────────────────────────┐
-│ 🇮🇳 DESTINATION REGION                │
-│ Asia Pacific (Mumbai) — ap-south-1  │
-│                                       │
-│ cad-exp4-destination-nitanshu         │
-└───────────────────────────────────────┘
-```
+| Rule Scope | All objects |
 
-### 🔑 Key Work
+| IAM Role | Created through S3 Console |
 
-- Created a source S3 bucket in `us-east-1`.
-- Enabled Versioning on the source bucket.
-- Created a destination S3 bucket in `ap-south-1`.
-- Enabled Versioning on the destination bucket.
-- Uploaded `scheduler.pdf` to the source bucket.
-- Created the replication rule `CRR-to-ap-south-1`.
-- Selected the Mumbai bucket as the replication destination.
-- Used an IAM role created through the S3 console for replication permissions.
-- Applied the replication rule to all objects.
-- Used S3 Batch Replication to handle the object that existed before the replication configuration.
-- Created and monitored the Batch Operations job.
-- Verified `scheduler.pdf` in the Mumbai destination bucket.
-- Inspected the job/manifest-related objects created during the Batch Operations workflow.
-- Emptied and deleted the temporary source and destination buckets after verification.
+| Test Object | `scheduler.pdf` |
 
-### 📚 Concepts Covered
-
-- Amazon S3
-- S3 Versioning
-- Cross-Region Replication (CRR)
-- Same-account replication
-- AWS Regions
-- Replication rules
-- IAM roles
-- S3 Batch Operations
-- S3 Batch Replication
-- Replication manifests
-- Completion reports
-- Multi-region backup
-- Geographic redundancy
-- Disaster recovery fundamentals
-- Resource cleanup
-- Cloud cost awareness
-
-### 🔄 Live Replication vs Batch Replication
-
-A major concept demonstrated by this practical was the difference between live replication and replication of existing objects.
-
-```text
-LIVE CRR
-New / updated eligible object
-            │
-            ▼
-     Source S3 Bucket
-            │
-            │ asynchronous replication
-            ▼
-   Destination S3 Bucket
-```
-
-Live replication does **not** retroactively replicate objects that existed before the replication configuration was created.
-
-For existing objects:
-
-```text
-Existing object
-      │
-      ▼
-S3 Batch Replication
-      │
-      ▼
-Destination bucket
-```
-
-Therefore, because `scheduler.pdf` already existed before the CRR rule was configured, **S3 Batch Replication** was used to backfill the object.
-
-### 🧾 Replication Manifest
-
-The Batch Replication workflow uses a **manifest** to identify objects that the Batch Operations job should process.
-
-Conceptually:
-
-```text
-Replication Manifest
-        │
-        ├── Source bucket
-        ├── Object key
-        └── Version information where applicable
-```
-
-During the practical, a job-related folder appeared in the destination bucket. This represented Batch Operations / manifest-related processing data rather than the original test object itself.
-
-### 📦 Batch Operations Job
-
-The Batch Replication job was created through the S3 console and monitored through the Batch Operations interface.
-
-The practical observed the job progress from its initial state into an active processing state before the destination object was verified.
-
-### ✅ Verification
-
-The destination bucket in Mumbai was opened after the Batch Replication job was processed.
-
-The replicated object:
-
-```text
-scheduler.pdf
-```
-
-was visible in:
-
-```text
-cad-exp4-destination-nitanshu
-```
-
-This confirmed that the existing source object had been successfully replicated to the destination Region.
-
-### 🛡️ Security & Reliability Principles
-
-The practical demonstrated several cloud architecture principles:
-
-- Keep backup buckets private unless public access is explicitly required.
-- Use IAM roles for AWS service permissions.
-- Enable Versioning for replication.
-- Maintain geographic separation between source and backup data.
-- Use least-privilege permissions where possible.
-- Understand the difference between live replication and on-demand replication.
-- Plan recovery procedures instead of assuming replication alone is a complete disaster-recovery solution.
-- Clean up temporary resources after a practical to avoid unnecessary cloud costs.
-
-### 🧹 Cleanup
-
-After successful verification:
-
-```text
-Source bucket
-     │
-     ▼
-Remove stored data / versions
-     │
-     ▼
-Delete bucket
-
-Destination bucket
-     │
-     ▼
-Remove stored data / versions
-     │
-     ▼
-Delete bucket
-```
-
-Because Versioning was enabled, cleanup required attention to stored versions and delete markers rather than only deleting the visible object.
-
-### 📊 Experiment 5 Result
-
-| Check | Result |
-|---|---|
-| Source bucket created | ✅ |
-| Source Region configured | ✅ `us-east-1` |
-| Destination bucket created | ✅ |
-| Destination Region configured | ✅ `ap-south-1` |
-| Versioning enabled on source | ✅ |
-| Versioning enabled on destination | ✅ |
-| CRR rule created | ✅ |
-| CRR rule enabled | ✅ |
-| IAM replication role configured | ✅ |
-| Batch Replication job created | ✅ |
-| Existing object replicated | ✅ |
-| Destination verification | ✅ |
-| Cleanup completed | ✅ |
-
-📁 Detailed documentation is available in [`experiment-5/README.md`](experiment-5/README.md).
-
----
-
-# 📊 Experiments Comparison
-
-| Area | Experiment 1 | Experiment 2 | Experiment 3 | Experiment 4 | Experiment 5 |
-|---|---|---|---|---|---|
-| **Primary Service** | S3 + CloudFront | EC2 | IAM | S3 | S3 + Batch Operations |
-| **Main Concept** | Static Content Delivery | Cloud Compute | Identity & Access Control | Object Storage | Multi-Region Replication |
-| **Storage** | S3 | EBS / Instance Storage | S3 Permissions | S3 Objects | S3 Versioned Objects |
-| **Compute** | — | EC2 | — | — | — |
-| **Networking** | CloudFront Delivery | Security Group | IAM Authorization | S3 Access | Cross-Region Architecture |
-| **Security** | Private S3 Origin + HTTPS | Security Group | IAM Policies + Explicit Deny | Block Public Access + IAM | IAM + Versioning + Private Buckets |
-| **Resilience** | Content Distribution | VM Availability | Access Control | Object Management | Geographic Redundancy |
-| **Main Output** | Deployed Website | Running Linux VM | Controlled AWS Permissions | Managed S3 Bucket and Objects | Verified Multi-Region Object Backup |
-| **Status** | ✅ Completed | ✅ Completed | ✅ Completed | ✅ Completed | ✅ Completed |
-
----
-
-# 🛠️ Technologies & Services
-
-The repository currently uses or demonstrates the following AWS services and technologies:
-
-### AWS Services
-
-- **Amazon S3**
-- **Amazon CloudFront**
-- **Amazon EC2**
-- **AWS Identity and Access Management (IAM)**
-- **Amazon EBS**
-- **EC2 Instance Connect**
-- **Security Groups**
-- **S3 Batch Operations**
-
-### Supporting Technologies
-
-- Amazon Linux
-- Linux command line
-- AWS Management Console
-- HTTPS
-- IAM policy JSON
-- Cloud object storage
-- S3 Versioning
-- Cross-Region Replication
-- Batch Replication
-- Multi-region cloud architecture
-
----
-
-# 🔐 Security Concepts Covered
-
-Security is an important component of the practical work in this repository.
-
-The experiments introduce several fundamental AWS security and resilience concepts.
-
-### Identity and Access Management
-
-IAM is used to control which AWS identities can access which resources and what actions they are allowed to perform.
-
-### Least Privilege
-
-Permissions should be limited to only what is required for a particular task.
-
-### Explicit Deny
-
-An explicit `Deny` in an applicable IAM policy overrides an applicable `Allow`.
-
-### S3 Public Access Protection
-
-S3 Block Public Access helps prevent accidental public exposure of buckets and objects.
-
-### Security Groups
-
-EC2 Security Groups act as virtual firewalls controlling inbound and outbound traffic associated with instances.
-
-### Secure Content Delivery
-
-CloudFront can provide HTTPS-based delivery for content distributed from cloud storage.
+ 
 
 ### Versioning
 
-S3 Versioning maintains multiple versions of objects and is required for S3 replication configurations.
+ 
 
-### Cross-Region Redundancy
+Versioning was enabled on both the source and destination buckets.
 
-CRR provides a mechanism for maintaining eligible object replicas in a different AWS Region.
+ 
 
-### Backup Lifecycle Awareness
+```text
 
-Replication and backup resources should be monitored, verified, retained according to requirements, and cleaned up when temporary resources are no longer required.
+Source Bucket
+
+Versioning = ENABLED
+
+ 
+
+        │
+
+        │ CRR
+
+        ▼
+
+ 
+
+Destination Bucket
+
+Versioning = ENABLED
+
+```
+
+ 
+
+Versioning is an important prerequisite for the replication configuration used in this practical and also provides protection against accidental overwrites and deletions by preserving object versions.
+
+ 
+
+### Live Replication vs Batch Replication
+
+ 
+
+A major concept demonstrated in this experiment is the difference between live replication and replication of existing objects.
+
+ 
+
+#### Live CRR
+
+ 
+
+```text
+
+New / Updated Object
+
+        │
+
+        ▼
+
+Source Bucket
+
+        │
+
+        │ Live CRR
+
+        ▼
+
+Destination Bucket
+
+```
+
+ 
+
+#### Batch Replication
+
+ 
+
+```text
+
+Existing Object
+
+       │
+
+       ▼
+
+S3 Batch Operations
+
+       │
+
+       │ Batch Replication
+
+       ▼
+
+Destination Bucket
+
+```
+
+ 
+
+The test object `scheduler.pdf` already existed before the live replication rule was configured.
+
+ 
+
+Therefore, **S3 Batch Replication** was used to backfill the existing object.
+
+ 
+
+### Concepts practiced
+
+ 
+
+- Amazon S3
+
+- S3 Versioning
+
+- Cross-Region Replication
+
+- Replication rules
+
+- Same-account replication
+
+- IAM roles
+
+- Replication scope
+
+- S3 Batch Operations
+
+- Replication manifests
+
+- Batch job monitoring
+
+- Multi-region backup
+
+- Disaster recovery concepts
+
+- Geographic redundancy
+
+- Cost awareness
+
+- Resource cleanup
+
+ 
+
+### Security approach
+
+ 
+
+The practical intentionally kept the buckets private.
+
+ 
+
+Key principles included:
+
+ 
+
+- Avoid unnecessary public access
+
+- Use IAM roles for service permissions
+
+- Enable Versioning
+
+- Keep the backup copy in a separate Region
+
+- Grant only required replication permissions
+
+- Avoid unnecessary configuration complexity
+
+- Clean up temporary lab resources
+
+ 
+
+### Verification
+
+ 
+
+The practical successfully verified:
+
+ 
+
+```text
+
+Source Bucket
+
+      │
+
+      │ CRR / Batch Replication
+
+      ▼
+
+Destination Bucket
+
+      │
+
+      ▼
+
+scheduler.pdf
+
+      │
+
+      ▼
+
+Replication Verified ✅
+
+```
+
+ 
+
+After verification, the temporary source and destination resources were cleaned up.
+
+ 
+
+📁 **Detailed documentation:** [Experiment 5 README](./experiment-5/README.md)
+
+ 
 
 ---
 
-# 🎯 Repository Purpose
+ 
 
-The main objective of this repository is to build practical understanding of AWS infrastructure and cloud application development by:
+# 🔗 How the Five Experiments Connect
 
-**Creating → Configuring → Deploying → Accessing → Managing → Securing → Replicating → Verifying**
+ 
 
-cloud resources rather than studying the concepts only theoretically.
+The experiments form a broader cloud-development learning path:
 
-Each experiment is designed to provide hands-on exposure to a different part of the AWS ecosystem.
+ 
+
+```text
+
+┌───────────────────────────────────────┐
+
+│ EXPERIMENT 01                         │
+
+│ Amazon EC2                            │
+
+│ Cloud Compute Fundamentals            │
+
+└──────────────────┬────────────────────┘
+
+                   │
+
+                   ▼
+
+┌───────────────────────────────────────┐
+
+│ EXPERIMENT 02                         │
+
+│ AWS IAM                               │
+
+│ Identity & Access Control             │
+
+└──────────────────┬────────────────────┘
+
+                   │
+
+                   ▼
+
+┌───────────────────────────────────────┐
+
+│ EXPERIMENT 03                         │
+
+│ Amazon S3                             │
+
+│ Buckets & Object Management           │
+
+└──────────────────┬────────────────────┘
+
+                   │
+
+                   ▼
+
+┌───────────────────────────────────────┐
+
+│ EXPERIMENT 04                         │
+
+│ Amazon EC2                            │
+
+│ GCE → AWS Platform Adaptation         │
+
+└──────────────────┬────────────────────┘
+
+                   │
+
+                   ▼
+
+┌───────────────────────────────────────┐
+
+│ EXPERIMENT 05                         │
+
+│ Amazon S3 CRR                         │
+
+│ Multi-Region Backup & Resilience      │
+
+└───────────────────────────────────────┘
+
+```
+
+ 
+
+The overall repository therefore moves through:
+
+ 
+
+**Compute → Identity → Storage → Cross-Cloud Adaptation → Resilience**
+
+ 
 
 ---
+
+ 
+
+# 🧠 Concepts Covered Across the Repository
+
+ 
+
+## 🖥️ Compute
+
+ 
+
+- Amazon EC2
+
+- Cloud virtual machines
+
+- AMIs
+
+- Instance types
+
+- Amazon Linux 2023
+
+- SSH
+
+- EC2 Instance Connect
+
+- Linux system inspection
+
+- Security Groups
+
+ 
+
+## 🔐 Identity & Access
+
+ 
+
+- AWS IAM
+
+- IAM users
+
+- Authentication
+
+- Authorization
+
+- IAM policies
+
+- JSON policy statements
+
+- Allow
+
+- Explicit Deny
+
+- Least privilege
+
+- S3 permissions
+
+ 
+
+## 🪣 Object Storage
+
+ 
+
+- Amazon S3
+
+- Buckets
+
+- Objects
+
+- Object keys
+
+- Object properties
+
+- Object management
+
+- Block Public Access
+
+- Encryption
+
+- Versioning
+
+ 
+
+## 🌍 Resilience
+
+ 
+
+- Cross-Region Replication
+
+- Live replication
+
+- Batch Replication
+
+- S3 Batch Operations
+
+- Replication manifests
+
+- IAM replication roles
+
+- Geographic redundancy
+
+- Multi-region backup
+
+- Disaster recovery concepts
+
+ 
+
+## 🔄 Cloud Platform Adaptation
+
+ 
+
+Experiment 4 demonstrates how a practical originally designed around **Google Compute Engine** can be implemented using **Amazon EC2** when the required GCP environment is unavailable.
+
+ 
+
+This introduces an important real-world cloud skill:
+
+ 
+
+```text
+
+Cloud Concept
+
+     │
+
+     ▼
+
+Provider-Specific Service
+
+     │
+
+     ├── GCE
+
+     │
+
+     └── EC2
+
+     │
+
+     ▼
+
+Same Fundamental Compute Goal
+
+```
+
+ 
+
+---
+
+ 
+
+# 🛡️ Security Focus
+
+ 
+
+Security is not treated as a separate topic limited to IAM. It appears throughout the experiments.
+
+ 
+
+### Experiment 01 — EC2
+
+ 
+
+```text
+
+EC2
+
+ │
+
+ └── Security Group
+
+          │
+
+          └── Controlled SSH Access
+
+```
+
+ 
+
+### Experiment 02 — IAM
+
+ 
+
+```text
+
+Identity
+
+   │
+
+   ▼
+
+IAM Policy
+
+   │
+
+   ├── Allow
+
+   │
+
+   └── Explicit Deny
+
+           │
+
+           ▼
+
+     Least Privilege
+
+```
+
+ 
+
+### Experiment 03 — S3
+
+ 
+
+```text
+
+S3 Bucket
+
+   │
+
+   ├── Block Public Access
+
+   ├── IAM Permissions
+
+   ├── Encryption
+
+   └── Controlled Object Access
+
+```
+
+ 
+
+### Experiment 04 — EC2 Adaptation
+
+ 
+
+```text
+
+Cloud VM
+
+   │
+
+   ├── Security Group
+
+   ├── SSH
+
+   └── Controlled Remote Access
+
+```
+
+ 
+
+### Experiment 05 — S3 Replication
+
+ 
+
+```text
+
+Source Bucket
+
+      │
+
+      ├── Versioning
+
+      ├── IAM Role
+
+      └── CRR
+
+            │
+
+            ▼
+
+Destination Bucket
+
+```
+
+ 
+
+The combined experiments demonstrate that cloud security is **layered** across identity, network access, resource configuration, storage controls, and resilience.
+
+ 
+
+---
+
+ 
+
+# 📸 Screenshot & Evidence Structure
+
+ 
+
+Each experiment contains screenshot evidence documenting the important stages of the practical.
+
+ 
+
+| Experiment | Typical Evidence |
+
+|---|---|
+
+| **01 — EC2** | Instance launch, running state, Security Group, EC2 Instance Connect, Linux verification |
+
+| **02 — IAM** | IAM users, permissions, policies, JSON policy, explicit Deny, permission testing |
+
+| **03 — S3** | Bucket creation, configuration, uploaded objects, object details, management operations |
+
+| **04 — EC2 / GCE → AWS** | EC2 configuration, Security Group, terminal, OS verification, system inspection |
+
+| **05 — S3 CRR** | Source bucket, Versioning, destination bucket, replication rule, IAM role, Batch job, replicated object, cleanup |
+
+ 
+
+The individual experiment READMEs provide the detailed screenshot sequence for each practical.
+
+ 
+
+---
+
+ 
+
+# 📊 Experiment Comparison
+
+ 
+
+| Area | Exp. 01 | Exp. 02 | Exp. 03 | Exp. 04 | Exp. 05 |
+
+|---|---|---|---|---|---|
+
+| **Primary Service** | EC2 | IAM | S3 | EC2 | S3 |
+
+| **Main Focus** | Compute | Identity | Object Storage | Cloud Compute Adaptation | Resilience |
+
+| **Virtual Machine** | ✅ | — | — | ✅ | — |
+
+| **IAM** | — | ✅ | Supporting | Supporting | Replication Role |
+
+| **S3** | — | Supporting | ✅ | — | ✅ |
+
+| **Networking** | Security Group | Authorization | S3 Access | Security Group | Regional Architecture |
+
+| **Security** | SSH Control | Policies + Deny | Public Access Protection | SSH Control | IAM + Private Buckets |
+
+| **Multi-Region** | — | — | — | — | ✅ |
+
+| **Status** | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+ 
+
+---
+
+ 
+
+# 🛠️ AWS Services & Technologies
+
+ 
+
+### AWS Services
+
+ 
+
+- **Amazon EC2**
+
+- **Amazon S3**
+
+- **AWS Identity and Access Management (IAM)**
+
+- **Amazon CloudFront** where applicable to the repository's broader cloud coursework
+
+- **EC2 Instance Connect**
+
+- **S3 Cross-Region Replication**
+
+- **S3 Batch Operations**
+
+- **Security Groups**
+
+ 
+
+### Supporting Technologies
+
+ 
+
+- AWS Management Console
+
+- Amazon Linux 2023
+
+- Linux command line
+
+- SSH
+
+- IAM Policy JSON
+
+- HTTPS
+
+- Cloud object storage
+
+- AWS Regions
+
+ 
+
+---
+
+ 
+
+# 🧹 Cleanup & Cost Awareness
+
+ 
+
+Temporary cloud resources should not be left active after a practical unless they are intentionally required.
+
+ 
+
+The experiments therefore emphasize cleanup after verification.
+
+ 
+
+Typical cleanup actions include:
+
+ 
+
+- Terminating EC2 instances
+
+- Removing temporary S3 objects
+
+- Deleting temporary S3 buckets
+
+- Removing versioned objects and delete markers where applicable
+
+- Removing temporary replication configurations
+
+- Reviewing resources after the practical
+
+ 
+
+### Why cleanup matters
+
+ 
+
+Cloud resources can generate charges even when they are only being used for educational experimentation.
+
+ 
+
+A good cloud workflow is therefore:
+
+ 
+
+```text
+
+Create
+
+  ↓
+
+Configure
+
+  ↓
+
+Test
+
+  ↓
+
+Verify
+
+  ↓
+
+Document
+
+  ↓
+
+Clean Up
+
+```
+
+ 
+
+---
+
+ 
 
 # 📈 Learning Progression
 
-The experiments collectively demonstrate a progression from basic cloud resource creation to application-oriented cloud management and multi-region resilience:
+ 
+
+The repository builds practical knowledge in stages:
+
+ 
 
 ```text
-Experiment 1
-S3 + CloudFront
-       │
-       ▼
-Static Content Delivery
-       │
-       ▼
-Experiment 2
+
+01
+
 EC2
-       │
-       ▼
-Cloud Compute
-       │
-       ▼
-Experiment 3
+
+│
+
+├── Virtual Machines
+
+├── AMIs
+
+├── Instance Types
+
+├── Security Groups
+
+└── Remote Access
+
+        │
+
+        ▼
+
+02
+
 IAM
-       │
-       ▼
-Identity & Access Control
-       │
-       ▼
-Experiment 4
-S3 Bucket & Objects
-       │
-       ▼
-Cloud Object Storage Management
-       │
-       ▼
-Experiment 5
-S3 Cross-Region Replication
-       │
-       ▼
-Multi-Region Backup & Resilience
+
+│
+
+├── Users
+
+├── Authentication
+
+├── Authorization
+
+├── Policies
+
+└── Least Privilege
+
+        │
+
+        ▼
+
+03
+
+S3
+
+│
+
+├── Buckets
+
+├── Objects
+
+├── Object Keys
+
+├── Object Management
+
+└── Storage Security
+
+        │
+
+        ▼
+
+04
+
+EC2 — GCE → AWS
+
+│
+
+├── Cloud Platform Mapping
+
+├── EC2 Provisioning
+
+├── SSH
+
+└── Linux Inspection
+
+        │
+
+        ▼
+
+05
+
+S3 CRR
+
+│
+
+├── Versioning
+
+├── Replication
+
+├── Batch Operations
+
+├── IAM Roles
+
+└── Multi-Region Resilience
+
 ```
 
-Together, these experiments establish practical foundations for working with AWS-based cloud applications.
+ 
+
+This creates a practical foundation for more advanced cloud architectures.
+
+ 
 
 ---
 
-# 🧠 Experiment-to-Concept Map
+ 
+
+# 🎓 Learning Outcomes
+
+ 
+
+After completing these experiments, the learner should have practical exposure to:
+
+ 
+
+- Launching and accessing AWS compute resources
+
+- Working with Linux cloud instances
+
+- Configuring basic network access
+
+- Understanding IAM identities and permissions
+
+- Reading IAM policy JSON
+
+- Applying explicit Deny
+
+- Applying least-privilege principles
+
+- Creating and managing S3 buckets
+
+- Uploading and managing S3 objects
+
+- Understanding object keys and storage concepts
+
+- Applying basic S3 security controls
+
+- Understanding Versioning
+
+- Configuring Cross-Region Replication
+
+- Understanding Live vs Batch Replication
+
+- Working with S3 Batch Operations
+
+- Understanding replication manifests
+
+- Thinking about regional redundancy
+
+- Understanding cloud-provider service mapping
+
+- Verifying AWS configurations
+
+- Documenting practical work
+
+- Cleaning up cloud resources responsibly
+
+ 
+
+---
+
+ 
+
+# 🔮 Future Extensions
+
+ 
+
+The current experiments establish a strong foundation for more advanced cloud application development.
+
+ 
+
+Potential future experiments include:
+
+ 
+
+### 🌐 Networking
+
+ 
+
+- Amazon VPC
+
+- Subnets
+
+- Route Tables
+
+- Internet Gateways
+
+- NAT Gateways
+
+- Network ACLs
+
+- VPC Flow Logs
+
+ 
+
+### ⚙️ Application Development
+
+ 
+
+- AWS Lambda
+
+- API Gateway
+
+- Amazon DynamoDB
+
+- Amazon RDS
+
+- Application Load Balancer
+
+ 
+
+### 📊 Monitoring & Security
+
+ 
+
+- Amazon CloudWatch
+
+- AWS CloudTrail
+
+- AWS WAF
+
+- AWS Config
+
+- IAM Roles
+
+- Secrets Manager
+
+ 
+
+### 🚀 Cloud Operations
+
+ 
+
+- Auto Scaling
+
+- Elastic Load Balancing
+
+- Docker
+
+- Container deployment
+
+- CI/CD pipelines
+
+- Infrastructure as Code
+
+- AWS DevSecOps
+
+ 
+
+---
+
+ 
+
+# 📚 AWS Documentation
+
+ 
+
+- [Amazon EC2 Documentation](https://docs.aws.amazon.com/ec2/)
+
+- [AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/)
+
+- [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)
+
+- [Amazon S3 Replication Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html)
+
+- [S3 Batch Replication Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html)
+
+ 
+
+---
+
+ 
+
+# 🏁 Final Repository Status
+
+ 
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│                 AWS CLOUD APPLICATION DEVELOPMENT           │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  EXP 1 → S3 + CloudFront                                    │
-│          Static delivery + CDN                              │
-│                                                             │
-│  EXP 2 → EC2                                                │
-│          Cloud compute + Linux VM                           │
-│                                                             │
-│  EXP 3 → IAM                                                │
-│          Identity + permissions + least privilege            │
-│                                                             │
-│  EXP 4 → S3                                                 │
-│          Buckets + objects + object management              │
-│                                                             │
-│  EXP 5 → S3 CRR                                             │
-│          Versioning + replication + multi-region backup     │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════╗
+
+║             CLOUD APPLICATION DEVELOPMENT            ║
+
+╠══════════════════════════════════════════════════════╣
+
+║                                                      ║
+
+║  EXPERIMENT 01  │ Amazon EC2                  │  ✅  ║
+
+║  EXPERIMENT 02  │ AWS IAM                     │  ✅  ║
+
+║  EXPERIMENT 03  │ Amazon S3                   │  ✅  ║
+
+║  EXPERIMENT 04  │ EC2 — GCE → AWS             │  ✅  ║
+
+║  EXPERIMENT 05  │ S3 Cross-Region Replication │  ✅  ║
+
+║                                                      ║
+
+║  Compute        │ Identity     │ Storage             ║
+
+║  Security       │ Resilience   │ Verification        ║
+
+║                                                      ║
+
+║                 STATUS: COMPLETED 🚀                 ║
+
+╚══════════════════════════════════════════════════════╝
+
 ```
 
----
-
-# 📚 Key Learning Areas
-
-By completing the experiments in this repository, the following areas are covered:
-
-- AWS Management Console
-- Cloud object storage
-- Static website delivery
-- Content delivery networks
-- Cloud computing
-- Virtual machines
-- Linux-based cloud instances
-- Security Groups
-- IAM users
-- IAM policies
-- Permission evaluation
-- Explicit Deny
-- Least Privilege
-- S3 buckets
-- S3 objects
-- Object keys
-- Storage classes
-- S3 Versioning
-- Cross-Region Replication
-- S3 Batch Operations
-- Replication manifests
-- Multi-region backup
-- Geographic redundancy
-- Disaster-recovery fundamentals
-- Basic cloud security
-- Resource management
-- Cloud cost awareness
+ 
 
 ---
 
-# 🏆 Skills Demonstrated
-
-After completing the five experiments, the repository demonstrates practical exposure to:
-
-```text
-AWS Console Usage
-        ↓
-Resource Creation
-        ↓
-Cloud Configuration
-        ↓
-Compute & Storage
-        ↓
-Identity & Access Control
-        ↓
-Application Content Delivery
-        ↓
-Object Management
-        ↓
-Data Replication
-        ↓
-Multi-Region Resilience
-        ↓
-Verification & Cleanup
-```
-
----
+ 
 
 # 👨‍💻 Author
 
+ 
+
 **Nitanshu Tak**
 
+ 
+
 B.Tech — Computer Science Engineering  
+
 Cloud Computing & Virtualization Technology
+
+ 
 
 ---
 
+ 
+
 <p align="center">
+
   <b>☁️ Cloud Application Development Lab</b><br>
-  <sub>Learn → Build → Deploy → Manage → Secure → Replicate → Verify</sub>
+
+  <sub>Learn → Build → Secure → Verify → Document</sub>
+
 </p>
+

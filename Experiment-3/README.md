@@ -1,1742 +1,641 @@
-# 🔐 AWS IAM — Introduction to Identity and Access Management
+# Experiment - 3 - AWS Cloud Application Development Lab
 
+> A practical experiment demonstrating Amazon S3 bucket creation and object management using the AWS Management Console.
 
-
-> A practical AWS security experiment covering IAM users, permissions, policies, authorization, explicit deny, and the principle of least privilege.
-
-
-
-![AWS](https://img.shields.io/badge/AWS-IAM-orange?logo=amazonaws) ![IAM](https://img.shields.io/badge/Service-IAM-blue) ![Security](https://img.shields.io/badge/Focus-Cloud%20Security-red) ![Status](https://img.shields.io/badge/Status-Completed-success)
+![AWS](https://img.shields.io/badge/AWS-Cloud%20Application%20Development-orange?logo=amazonaws) ![S3](https://img.shields.io/badge/Service-Amazon%20S3-blue?logo=amazons3) ![Storage](https://img.shields.io/badge/Focus-Object%20Storage-green) ![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
+## 📌 About
 
+This folder contains the documentation for **Experiment 4** of the **Cloud Application Development Lab**.
 
-## 📌 Experiment Information
+The experiment focuses on **Amazon Simple Storage Service (Amazon S3)** and demonstrates the practical process of creating an S3 bucket and managing objects stored inside it.
 
+The experiment was performed using the **AWS Management Console** rather than command-line tools. The purpose is to build practical familiarity with cloud object storage and understand how applications can store and manage files using AWS.
+
+---
+
+## 🧪 Experiment Information
 
 | Parameter | Details |
 |---|---|
 | **Experiment** | Experiment 3 |
-| **Subject** | Cloud Computing Security and Management |
-| **Topic** | Introduction to AWS Identity and Access Management (IAM) |
+| **Subject** | Cloud Application Development |
+| **Topic** | Creating Buckets and Managing Objects in AWS |
 | **Cloud Platform** | Amazon Web Services (AWS) |
-| **Primary Service** | AWS Identity and Access Management (IAM) |
-| **Supporting Service** | Amazon S3 |
+| **Primary Service** | Amazon Simple Storage Service (Amazon S3) |
 | **Implementation** | AWS Management Console |
-| **Main Security Concept** | Identity-based access control |
-| **Permission Model Demonstrated** | Allow + Explicit Deny |
-| **Restricted Action** | `s3:DeleteBucket` |
-| **Security Principle** | Least Privilege |
+| **Main Concept** | Cloud Object Storage |
+| **Key Operations** | Bucket Creation, Object Upload, Object Management |
 | **Status** | ✅ Completed |
 
-
 ---
-
-
 
 ## 🎯 Aim
 
-
-
-To understand and implement **AWS Identity and Access Management (IAM)** by creating and managing IAM users, assigning permissions through IAM policies, controlling access to Amazon S3 resources, and applying an explicit permission restriction to demonstrate secure authorization and the principle of least privilege.
-
-
+To create an Amazon S3 bucket and perform basic object-management operations using the AWS Management Console while understanding the fundamental concepts of cloud-based object storage.
 
 ---
 
+## 🎯 Objectives
 
-
-## 📖 About the Experiment
-
-
-
-AWS Identity and Access Management (IAM) is a core AWS security service used to control access to AWS resources.
-
-
-
-IAM answers two important questions:
-
-
-
-```text
-
-Who is requesting access?
-
-        ↓
-
-Authentication
-
-
-
-What is the requester allowed to do?
-
-        ↓
-
-Authorization
-
-```
-
-
-
-In this experiment, IAM was explored practically through the AWS Management Console.
-
-
-
-The practical work included:
-
-
-
-- Creating two IAM users.
-
-- Reviewing IAM user configurations.
-
-- Managing user permissions.
-
-- Exploring IAM policies.
-
-- Understanding JSON-based policy statements.
-
-- Working with Amazon S3 permissions.
-
-- Understanding broad permissions such as `s3:*`.
-
-- Restricting the high-impact `s3:DeleteBucket` operation.
-
-- Demonstrating explicit `Deny` precedence over `Allow`.
-
-- Applying the principle of least privilege.
-
-- Verifying the resulting permission behavior.
-
-
+- Understand the purpose of Amazon S3.
+- Understand the difference between an S3 bucket and an S3 object.
+- Create an S3 bucket using the AWS Management Console.
+- Understand basic bucket configuration.
+- Upload files as objects into an S3 bucket.
+- View and inspect stored objects.
+- Perform basic object-management operations.
+- Understand object keys and object properties.
+- Understand basic S3 security considerations.
+- Verify the final state of the bucket and its objects.
 
 ---
 
+## ☁️ Introduction to Amazon S3
 
+**Amazon Simple Storage Service (Amazon S3)** is an object storage service provided by AWS.
 
-## 🧪 Objectives
+S3 allows users and applications to store and retrieve data at scale without managing physical storage infrastructure.
 
+Instead of storing files in a traditional filesystem, S3 stores data as **objects** inside **buckets**.
 
+The basic S3 structure can be represented as:
 
-The experiment was performed with the following objectives:
+```text
+AWS Account
+     │
+     ▼
+Amazon S3
+     │
+     ▼
+   Bucket
+     │
+     ├── Object
+     ├── Object
+     └── Object
+```
 
+S3 can be used for:
 
-
-- Understand the purpose of AWS IAM.
-
-- Understand authentication and authorization.
-
-- Create and manage IAM users.
-
-- Understand IAM policies and policy statements.
-
-- Understand the `Effect`, `Action`, and `Resource` elements of an IAM policy.
-
-- Assign permissions to IAM identities.
-
-- Understand Amazon S3 permissions through IAM.
-
-- Understand broad S3 access using `s3:*`.
-
-- Restrict a sensitive operation using an explicit `Deny`.
-
-- Understand why an explicit `Deny` overrides an `Allow`.
-
-- Apply the principle of least privilege.
-
-- Verify access control through permission testing.
-
-- Understand the importance of IAM in cloud security.
-
-
+- Application files
+- Images and videos
+- Documents
+- Backups
+- Logs
+- Datasets
+- Static website assets
+- Software artifacts
+- Archival storage
 
 ---
 
+## 🪣 What is an S3 Bucket?
 
+An **S3 bucket** is a logical container used to store objects.
 
-## 🧠 Core IAM Concepts
+Every object stored in Amazon S3 belongs to a bucket.
 
+Important characteristics of S3 buckets include:
 
+- Bucket names must follow AWS naming rules.
+- Bucket names are globally unique within the S3 namespace.
+- A bucket is created in a specific AWS Region.
+- Bucket-level security and configuration can be applied.
+- A bucket can contain a very large number of objects.
+- Features such as versioning and lifecycle management can be configured at the bucket level.
 
-### Authentication
-
-
-
-Authentication verifies the identity of a requester.
-
-
-
-```text
-
-Authentication
-
-      ↓
-
-"Who are you?"
-
-```
-
-
-
-For example, an IAM user can authenticate through the AWS Management Console using the configured sign-in credentials.
-
-
-
-### Authorization
-
-
-
-Authorization determines what an authenticated identity is allowed to do.
-
-
+Example:
 
 ```text
-
-Authorization
-
-      ↓
-
-"What are you allowed to do?"
-
+my-cloud-lab-bucket
 ```
-
-
-
-IAM policies provide the authorization rules that AWS evaluates when an identity makes a request.
-
-
 
 ---
 
+## 📦 What is an S3 Object?
 
+An **S3 object** is the actual data stored inside a bucket.
 
-## 👤 IAM Users
-
-
-
-An IAM user is an identity within an AWS account that can be given permissions to access AWS resources.
-
-
-
-Two IAM users were created as part of this experiment.
-
-
-
-Using separate identities is important because it provides:
-
-
-
-- Individual accountability.
-
-- Independent permission management.
-
-- Better access control.
-
-- Easier credential lifecycle management.
-
-- Better auditing and investigation.
-
-
-
-The user configuration and permissions can be viewed through:
-
-
+Examples include:
 
 ```text
-
-AWS Console
-
-   ↓
-
-IAM
-
-   ↓
-
-Users
-
-   ↓
-
-Select User
-
+index.html
+image.png
+report.pdf
+data.csv
+backup.zip
 ```
 
+An object generally consists of:
 
+- Object data
+- Object key
+- Metadata
+- Storage class
+- Version information, when versioning is enabled
+
+Example:
+
+```text
+Bucket:
+cloud-development-lab
+
+Object:
+documents/report.pdf
+```
+
+Here:
+
+```text
+Bucket = cloud-development-lab
+Object Key = documents/report.pdf
+```
 
 ---
 
+## 🔑 Object Key
 
+The **object key** is the name used to identify an object inside an S3 bucket.
 
-## 📜 IAM Policies
+For example:
 
-
-
-IAM policies are JSON documents that define permissions.
-
-
-
-A simplified policy statement looks like:
-
-
-
-```json
-
-{
-
-  "Effect": "Allow",
-
-  "Action": "s3:GetObject",
-
-  "Resource": "arn:aws:s3:::example-bucket/*"
-
-}
-
+```text
+documents/report.pdf
+images/cloud.png
+website/index.html
 ```
 
-
-
-The major policy elements are:
-
-
-
-| Element | Purpose |
-
-|---|---|
-
-| `Version` | Defines the policy language version |
-
-| `Statement` | Contains one or more permission statements |
-
-| `Sid` | Optional statement identifier |
-
-| `Effect` | Specifies `Allow` or `Deny` |
-
-| `Action` | Specifies the AWS API operation |
-
-| `Resource` | Specifies the AWS resource |
-
-| `Condition` | Optional condition for applying the statement |
-
-
+S3 does not use a traditional hierarchical filesystem. The `/` character is commonly used in object keys to create a folder-like organization in the AWS Console.
 
 ---
 
+## 🆚 Bucket vs Object
 
-
-## 🔑 Allow and Deny
-
-
-
-IAM policies can either allow or deny actions.
-
-
-
-### Allow
-
-
-
-```json
-
-{
-
-  "Effect": "Allow"
-
-}
-
-```
-
-
-
-An Allow statement permits the specified action when the statement applies.
-
-
-
-### Explicit Deny
-
-
-
-```json
-
-{
-
-  "Effect": "Deny"
-
-}
-
-```
-
-
-
-A Deny statement explicitly blocks the specified action.
-
-
-
-The most important policy evaluation rule demonstrated in this experiment is:
-
-
-
-```text
-
-Explicit Deny
-
-      ↓
-
-Overrides
-
-      ↓
-
-Allow
-
-```
-
-
-
-Therefore:
-
-
-
-```text
-
-Allow s3:*
-
-      +
-
-Deny s3:DeleteBucket
-
-      ↓
-
-DeleteBucket = DENIED
-
-```
-
-
+| Aspect | Bucket | Object |
+|---|---|---|
+| Purpose | Container for objects | Actual stored data |
+| Example | `cloud-lab-bucket` | `report.pdf` |
+| Identification | Bucket name | Object key |
+| Configuration | Policies, versioning, lifecycle | Metadata, tags, storage class |
+| Level | Bucket-level resource | Object-level resource |
 
 ---
 
+## 🌎 AWS Region
 
+An S3 bucket is associated with an AWS Region when it is created.
 
-## 🪣 Amazon S3 Permission Example
+The Region determines where AWS stores the bucket's data infrastructure.
 
+Region selection can be influenced by:
 
-
-Amazon S3 was used as the practical resource for demonstrating IAM authorization.
-
-
-
-Important S3 actions include:
-
-
-
-| IAM Action | Description |
-
-|---|---|
-
-| `s3:ListAllMyBuckets` | List accessible buckets |
-
-| `s3:CreateBucket` | Create an S3 bucket |
-
-| `s3:ListBucket` | List objects in a bucket |
-
-| `s3:GetObject` | Read an object |
-
-| `s3:PutObject` | Upload/write an object |
-
-| `s3:DeleteObject` | Delete an object |
-
-| `s3:DeleteBucket` | Delete an entire bucket |
-
-
-
-The experiment specifically focuses on restricting:
-
-
-
-```text
-
-s3:DeleteBucket
-
-```
-
-
-
-because deleting an entire bucket is a high-impact destructive operation.
-
-
+- Application latency
+- Data residency requirements
+- Compliance requirements
+- Cost
+- Proximity to users or applications
+- Integration with other AWS services
 
 ---
 
+## 🗄️ S3 Storage Classes
 
+Amazon S3 provides different storage classes for different access patterns.
 
-## 🔐 Least Privilege
+Common examples include:
 
+- **S3 Standard** — frequently accessed data.
+- **S3 Intelligent-Tiering** — data with changing or unknown access patterns.
+- **S3 Standard-IA** — infrequently accessed data.
+- **S3 One Zone-IA** — infrequently accessed data stored in a single Availability Zone.
+- **S3 Glacier Instant Retrieval** — archival data requiring rapid retrieval.
+- **S3 Glacier Flexible Retrieval** — archival storage with flexible retrieval times.
+- **S3 Glacier Deep Archive** — long-term archival storage.
 
+The correct storage class depends on:
 
-The **principle of least privilege** means that an identity should receive only the permissions necessary to perform its required tasks.
-
-
-
-For example, a user may need to:
-
-
-
-```text
-
-Upload files
-
-Download files
-
-List files
-
-Delete individual objects
-
-```
-
-
-
-without needing permission to:
-
-
-
-```text
-
-Delete the entire bucket
-
-```
-
-
-
-Therefore, restricting `s3:DeleteBucket` while retaining other required S3 permissions demonstrates a practical least-privilege security control.
-
-
+- Frequency of access
+- Retrieval requirements
+- Retention period
+- Cost considerations
 
 ---
 
+## 🔐 S3 Security
 
+S3 security is an important part of cloud application development.
 
-## 🛡️ Security Architecture
+Access to S3 resources should follow the **principle of least privilege**, meaning users and applications should receive only the permissions they actually require.
 
+Important security mechanisms include:
 
+- AWS IAM policies
+- S3 bucket policies
+- S3 Block Public Access
+- Object Ownership
+- Encryption
+- HTTPS/TLS
+- Logging and monitoring
 
-```text
+### Public Access
 
-                         AWS ACCOUNT
+S3 buckets should generally remain private unless public access is intentionally required.
 
-                              |
-
-                              v
-
-                       +-------------+
-
-                       |     IAM     |
-
-                       +------+------+
-
-                              |
-
-                    +---------+---------+
-
-                    |                   |
-
-                    v                   v
-
-               IAM User 1          IAM User 2
-
-                    |                   |
-
-                    +---------+---------+
-
-                              |
-
-                              v
-
-                         IAM Policies
-
-                              |
-
-                              v
-
-                         Authorization
-
-                              |
-
-                              v
-
-                         Amazon S3
-
-```
-
-
-
-IAM acts as the authorization layer between the identity and the AWS resource.
-
-
+For normal lab and application-storage use cases, **Block Public Access** should remain enabled.
 
 ---
 
+## 🔄 Experiment Workflow
 
+The practical workflow followed in this experiment was:
+
+```text
+AWS Management Console
+        │
+        ▼
+     Amazon S3
+        │
+        ▼
+   Create Bucket
+        │
+        ▼
+ Configure Settings
+        │
+        ▼
+   Create Bucket
+        │
+        ▼
+    Open Bucket
+        │
+        ▼
+    Upload Object
+        │
+        ▼
+   View Object
+        │
+        ▼
+ Manage Object
+        │
+        ▼
+ Final Verification
+```
+
+---
 
 ## 🛠️ Practical Procedure
 
+### Step 1 — Open Amazon S3
 
-
-### 1. Open AWS IAM
-
-
-
-Open the AWS Management Console and search for:
-
-
-
-```text
-
-IAM
-
-```
-
-
-
-Open **Identity and Access Management (IAM)**.
-
-
+1. Sign in to the AWS Management Console.
+2. Search for **S3** using the AWS service search.
+3. Open **Amazon S3**.
+4. Navigate to the **Buckets** section.
 
 ---
 
+### Step 2 — Create an S3 Bucket
 
+1. Select **Create bucket**.
+2. Enter a valid and globally unique bucket name.
+3. Select the required AWS Region.
+4. Review the Object Ownership settings.
+5. Review the Block Public Access settings.
+6. Keep public access blocked unless the experiment specifically requires otherwise.
+7. Review the remaining settings.
+8. Select **Create bucket**.
 
-### 2. Open IAM Users
-
-
-
-Navigate to:
-
-
-
-```text
-
-IAM
-
-  ↓
-
-Users
-
-```
-
-
-
-Review the existing users and select **Create user** when creating a new identity.
-
-
+After successful creation, the new bucket should appear in the bucket list.
 
 ---
 
+### Step 3 — Open the Bucket
 
+1. Select the newly created bucket.
+2. Open the bucket.
+3. Navigate to the **Objects** section.
 
-### 3. Create User 1
-
-
-
-Configure the required user name and access method.
-
-
-
-Proceed to the permissions section and assign the permissions required for the experiment.
-
-
-
-Review the configuration and create the user.
-
-
+The bucket should initially contain no objects unless objects were added during creation or by another operation.
 
 ---
 
+### Step 4 — Upload an Object
 
+1. Select **Upload**.
+2. Choose the required file from the local computer.
+3. Review the selected file.
+4. Start the upload.
+5. Wait for the upload to complete.
+6. Return to the Objects section.
 
-### 4. Create User 2
-
-
-
-Repeat the same process for the second IAM identity.
-
-
-
-The two users provide separate identities for demonstrating user and permission management.
-
-
+The uploaded file should now appear as an object.
 
 ---
 
+### Step 5 — Inspect the Object
 
+Select the uploaded object to view its information.
 
-### 5. Review User Permissions
+Depending on the console view, object information may include:
 
-
-
-Open an IAM user and navigate to:
-
-
-
-```text
-
-Permissions
-
-```
-
-
-
-Review:
-
-
-
-- Policies attached to the user.
-
-- Permission details.
-
-- Applicable S3 access.
-
-- Permission summaries.
-
-
+- Object name
+- Object key
+- Object URL
+- Object size
+- Last modified time
+- Storage class
+- Encryption information
+- Metadata
+- Tags
 
 ---
 
+### Step 6 — Manage the Object
 
+Amazon S3 provides several object-management operations.
 
-### 6. Open IAM Policies
+Common operations include:
 
+- Download
+- Copy
+- Move
+- Delete
+- Open
+- View properties
+- Modify metadata or tags where applicable
 
-
-Navigate to:
-
-
-
-```text
-
-IAM
-
-  ↓
-
-Policies
-
-```
-
-
-
-Locate the relevant S3 permission policy.
-
-
-
-Open the policy and inspect its JSON representation.
-
-
+The required operation for the experiment can be performed from the object-management interface.
 
 ---
 
+## 📋 Object Management Operations
 
-
-### 7. Review Policy JSON
-
-
-
-Identify:
-
-
-
-```text
-
-Version
-
-Statement
-
-Effect
-
-Action
-
-Resource
-
-```
-
-
-
-These fields describe how AWS should evaluate the permission statement.
-
-
+| Operation | Purpose |
+|---|---|
+| **Upload** | Adds a new object to the bucket |
+| **View** | Displays object information |
+| **Download** | Retrieves the object to the local system |
+| **Copy** | Creates a copy of the object |
+| **Move** | Relocates an object as supported by the console workflow |
+| **Delete** | Removes an object from the bucket |
 
 ---
 
+## ✅ Verification
 
+The experiment can be considered successfully completed when:
 
-### 8. Configure the S3 Restriction
-
-
-
-The restricted policy follows this structure:
-
-
-
-```json
-
-{
-
-  "Version": "2012-10-17",
-
-  "Statement": [
-
-    {
-
-      "Sid": "AllowS3Access",
-
-      "Effect": "Allow",
-
-      "Action": "s3:*",
-
-      "Resource": "*"
-
-    },
-
-    {
-
-      "Sid": "DenyBucketDeletion",
-
-      "Effect": "Deny",
-
-      "Action": "s3:DeleteBucket",
-
-      "Resource": "*"
-
-    }
-
-  ]
-
-}
-
-```
-
-
-
-The first statement provides broad S3 access.
-
-
-
-The second statement adds a security restriction:
-
-
-
-```text
-
-Deny → s3:DeleteBucket
-
-```
-
-
+- The S3 bucket appears in the bucket list.
+- The bucket name is correct.
+- The bucket was created in the intended Region.
+- The bucket opens successfully.
+- The Objects section is accessible.
+- The uploaded object appears in the bucket.
+- Object information can be inspected.
+- The required object-management operation succeeds.
+- The final bucket state is visible and correct.
 
 ---
 
+## 🧪 Test Cases
 
-
-## 🔎 Policy Evaluation
-
-
-
-When the identity requests:
-
-
-
-```text
-
-s3:DeleteBucket
-
-```
-
-
-
-AWS evaluates the applicable policies.
-
-
-
-The policy contains:
-
-
-
-```text
-
-Allow → s3:*
-
-```
-
-
-
-and:
-
-
-
-```text
-
-Deny → s3:DeleteBucket
-
-```
-
-
-
-Because the Deny is explicit:
-
-
-
-```text
-
-Final Decision
-
-      ↓
-
-ACCESS DENIED
-
-```
-
-
-
-This demonstrates the precedence of explicit Deny over Allow.
-
-
-
----
-
-
-
-## 📊 Permission Behavior
-
-
-
-| Operation | With Broad S3 Access | After Restriction |
-
-|---|---:|---:|
-
-| List buckets | ✅ Allowed | ✅ Allowed |
-
-| Create bucket | ✅ Allowed | ✅ Allowed |
-
-| List objects | ✅ Allowed | ✅ Allowed |
-
-| Upload object | ✅ Allowed | ✅ Allowed |
-
-| Download object | ✅ Allowed | ✅ Allowed |
-
-| Delete object | ✅ Allowed | ✅ Allowed |
-
-| Delete entire bucket | ✅ Allowed | ❌ Denied |
-
-
-
-This demonstrates that a specific destructive action can be restricted without removing all S3 access.
-
-
-
----
-
-
-
-## 🧪 Permission Testing
-
-
-
-Permission testing should be performed carefully using a test environment.
-
-
-
-The testing process is:
-
-
-
-```text
-
-1. Sign in as the intended IAM user
-
-        ↓
-
-2. Open Amazon S3
-
-        ↓
-
-3. Perform an allowed operation
-
-        ↓
-
-4. Verify that it succeeds
-
-        ↓
-
-5. Attempt the restricted operation
-
-        ↓
-
-6. Verify that it is denied
-
-```
-
-
-
-If bucket deletion is tested, it should only be attempted against a disposable test bucket.
-
-
-
-Important:
-
-
-
-> Never perform destructive permission tests against important or production data.
-
-
-
----
-
-
-
-## 📋 Test Cases
-
-
-
-| ID | Test Case | Expected Result | Status |
-
+| Test Case | Action | Expected Result | Status |
 |---|---|---|---|
-
-| TC-01 | Open IAM | IAM dashboard loads | ✅ Pass |
-
-| TC-02 | Create User 1 | User appears in IAM | ✅ Pass |
-
-| TC-03 | Create User 2 | User appears in IAM | ✅ Pass |
-
-| TC-04 | Review permissions | Attached policies are visible | ✅ Pass |
-
-| TC-05 | Access S3 | Allowed S3 operations work | ✅ Pass |
-
-| TC-06 | Review policy JSON | Policy elements are visible | ✅ Pass |
-
-| TC-07 | Configure explicit Deny | `s3:DeleteBucket` is denied | ✅ Pass |
-
-| TC-08 | Verify restricted action | Bucket deletion is blocked | ✅ Pass |
-
-
+| **TC-01** | Open Amazon S3 | S3 Console opens successfully | ✅ Pass |
+| **TC-02** | Create bucket | Bucket appears in bucket list | ✅ Pass |
+| **TC-03** | Open bucket | Bucket contents page opens | ✅ Pass |
+| **TC-04** | Upload object | Object appears in the bucket | ✅ Pass |
+| **TC-05** | Inspect object | Object details are displayed | ✅ Pass |
+| **TC-06** | Manage object | Required operation completes | ✅ Pass |
+| **TC-07** | Final verification | Expected final state is visible | ✅ Pass |
 
 ---
-
-
-
-## 👀 Observations
-
-
-
-The following observations were made during the experiment:
-
-
-
-- IAM provides centralized identity and authorization management.
-
-- Multiple IAM users can be created independently.
-
-- User permissions are controlled through policies.
-
-- IAM policies use JSON syntax.
-
-- S3 actions can be controlled through IAM.
-
-- `s3:*` represents broad S3 access.
-
-- `s3:DeleteBucket` is a high-impact destructive permission.
-
-- An explicit Deny overrides an applicable Allow.
-
-- Least privilege reduces unnecessary access.
-
-- Separate IAM users provide better accountability.
-
-- Permission testing is necessary to verify the intended effective access.
-
-
-
----
-
-
-
-## 🔒 Security Analysis
-
-
-
-IAM is a fundamental component of AWS cloud security.
-
-
-
-A poorly configured identity may have more access than required, increasing the impact of:
-
-
-
-- Compromised credentials.
-
-- Accidental deletion.
-
-- Unauthorized modification.
-
-- Insider threats.
-
-- Misconfigured applications.
-
-
-
-The experiment demonstrates a simple security guardrail:
-
-
-
-```text
-
-Broad Permission
-
-      ↓
-
-s3:*
-
-      +
-
-Security Restriction
-
-      ↓
-
-Deny s3:DeleteBucket
-
-      ↓
-
-Reduced Destructive Capability
-
-```
-
-
-
-In a production environment, this concept should be extended through:
-
-
-
-- Least-privilege policies.
-
-- IAM roles.
-
-- Strong authentication.
-
-- Multi-factor authentication.
-
-- Short-lived credentials.
-
-- Permission reviews.
-
-- CloudTrail auditing.
-
-- Security monitoring.
-
-- Resource-specific policies.
-
-- Conditions and organizational guardrails.
-
-
-
----
-
-
 
 ## 📸 Screenshots
 
+The practical screenshots captured during the experiment should be placed in this section.
 
-
-The `experiment-3` folder should contain screenshots showing the practical execution of the experiment.
-
-
-
-Recommended evidence:
-
-
-
-### Screenshot 01 — IAM Dashboard
-
-
-
-Shows the AWS IAM service dashboard.
-
-
+Recommended order:
 
 ```text
-
-[ Insert Screenshot ]
-
+01 — Amazon S3 Dashboard
+02 — Create Bucket
+03 — Bucket Created
+04 — Bucket Overview
+05 — Objects Section
+06 — Upload Objects
+07 — Uploaded Object
+08 — Object Details
+09 — Object Management
+10 — Final Verification
 ```
 
-
-
-### Screenshot 02 — IAM Users
-
-
-
-Shows the IAM Users page and the two created identities.
-
-
+Screenshots can be stored in this folder using a structure such as:
 
 ```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 03 — User 1
-
-
-
-Shows the configuration/details of the first IAM user.
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 04 — User 2
-
-
-
-Shows the configuration/details of the second IAM user.
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 05 — User Permissions
-
-
-
-Shows policies and permissions associated with an IAM user.
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 06 — IAM Policy
-
-
-
-Shows the relevant S3 permission policy.
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 07 — Policy JSON
-
-
-
-Shows the JSON representation of the policy.
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 08 — Restricted S3 Policy
-
-
-
-Shows the explicit Deny for:
-
-
-
-```text
-
-s3:DeleteBucket
-
-```
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 09 — Permission Verification
-
-
-
-Shows an allowed S3 operation or permission verification.
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-### Screenshot 10 — Restricted Operation
-
-
-
-Shows the denied destructive operation if it was safely tested.
-
-
-
-```text
-
-[ Insert Screenshot ]
-
-```
-
-
-
-> Existing genuine IAM screenshots from previous practical work may be reused where they accurately document the actions and configurations described in this experiment.
-
-
-
----
-
-
-
-## 📁 Repository Structure
-
-
-
-```text
-
-experiment-3/
-
-
+experiment-4/
 │
-
-
 ├── README.md
-
-
 │
-
-
 └── screenshots/
-
-
-    ├── iam-dashboard.png
-
-
-    ├── iam-users.png
-
-
-    ├── iam-user-1.png
-
-
-    ├── iam-user-2.png
-
-
-    ├── iam-permissions.png
-
-
-    ├── iam-policy.png
-
-
-    ├── iam-policy-json.png
-
-
-    ├── restricted-s3-policy.png
-
-
-    ├── permission-verification.png
-
-
-    └── restricted-operation.png
-
+    ├── 01-s3-dashboard.png
+    ├── 02-create-bucket.png
+    ├── 03-bucket-created.png
+    ├── 04-bucket-overview.png
+    ├── 05-objects-section.png
+    ├── 06-upload-object.png
+    ├── 07-uploaded-object.png
+    ├── 08-object-details.png
+    ├── 09-object-management.png
+    └── 10-final-verification.png
 ```
 
+---
 
+## 👀 Observations
+
+During the experiment, the following observations were made:
+
+- Amazon S3 uses an object-storage architecture.
+- Buckets act as containers for stored objects.
+- Objects are identified using object keys.
+- Bucket names must satisfy global naming requirements.
+- S3 buckets are associated with AWS Regions.
+- The AWS Management Console provides a graphical interface for storage management.
+- Objects can be uploaded and managed directly from the S3 Console.
+- S3 provides multiple storage classes for different access patterns.
+- S3 provides multiple mechanisms for controlling access.
+- Public access should not be enabled unnecessarily.
 
 ---
 
+## 🌐 Applications of Amazon S3
 
+Amazon S3 is commonly used for:
 
-## 🧩 Technologies & Services
+### Application Storage
 
+Applications can store documents, images, videos, reports, and other files.
 
+### Backup and Recovery
 
-### AWS Services
+S3 can be used as a destination for backup data and recovery workflows.
 
+### Static Websites
 
+HTML, CSS, JavaScript, images, and other static website resources can be stored in S3.
 
-- **AWS Identity and Access Management (IAM)**
+### Data Lakes
 
+Large datasets can be stored in S3 and processed using AWS analytics services.
 
-- **Amazon S3**
+### Logging
 
+Application and infrastructure logs can be stored for later analysis.
 
+### Software Artifacts
 
-### Tools
+Build artifacts, packages, installers, and deployment files can be stored in S3.
 
+### Archival
 
-
-- AWS Management Console
-
-
-- JSON policy editor
-
-
-- Web browser
-
-
-
-### Security Concepts
-
-
-
-- Authentication
-
-
-- Authorization
-
-
-- Identity management
-
-
-- Access control
-
-
-- IAM policies
-
-
-- Allow and Deny
-
-
-- Explicit Deny
-
-
-- Least Privilege
-
-
-- Resource permissions
-
-
-- Cloud security
-
-
+S3 storage classes can be used for long-term retention and archival requirements.
 
 ---
 
+## ⭐ Advantages of Amazon S3
 
+- Highly durable object storage.
+- Elastic storage capacity.
+- No need to manage physical storage infrastructure.
+- Integration with numerous AWS services.
+- Multiple storage classes.
+- Access-control mechanisms.
+- Versioning support.
+- Lifecycle management.
+- Encryption capabilities.
+- Management through Console, CLI, SDKs, and APIs.
+- Suitable for small applications and large-scale cloud workloads.
 
-## 🌍 Real-World Applications
+---
 
+## 🔒 Security Best Practices
 
+When working with Amazon S3:
 
-IAM concepts demonstrated in this experiment are used in real-world cloud environments for:
+1. Follow the principle of least privilege.
+2. Keep Block Public Access enabled unless public access is required.
+3. Avoid storing sensitive information in publicly accessible buckets.
+4. Use IAM policies to control identity permissions.
+5. Use bucket policies only when required.
+6. Enable encryption according to application requirements.
+7. Use HTTPS/TLS for data transfer.
+8. Protect AWS credentials.
+9. Never commit AWS access keys to Git repositories.
+10. Review permissions regularly.
+11. Consider versioning for important data.
+12. Remove temporary resources when they are no longer required.
 
+---
 
+## 📚 Key Concepts Learned
 
-- Developer access management.
-
-- Operations team permissions.
-
-- S3 storage administration.
-
-- Application service access.
-
-- Temporary cloud access.
-
-- Security guardrails.
-
-- Administrative privilege control.
-
-- Compliance and auditing.
-
-- DevSecOps access management.
-
-- Cloud infrastructure security.
-
-
-
-A production environment may extend the same architecture using:
-
-
+This experiment covered the following AWS concepts:
 
 ```text
-
-IAM
-
- +
-
-IAM Roles
-
- +
-
-MFA
-
- +
-
-CloudTrail
-
- +
-
-Organizations
-
- +
-
-Security Monitoring
-
+Amazon S3
+│
+├── Buckets
+│   ├── Bucket Name
+│   ├── AWS Region
+│   ├── Access Configuration
+│   └── Bucket Settings
+│
+├── Objects
+│   ├── Object Data
+│   ├── Object Key
+│   ├── Metadata
+│   ├── Tags
+│   └── Storage Class
+│
+├── Security
+│   ├── IAM
+│   ├── Bucket Policies
+│   ├── Block Public Access
+│   └── Encryption
+│
+└── Management
+    ├── Upload
+    ├── Download
+    ├── Copy
+    ├── Move
+    └── Delete
 ```
 
-
-
 ---
-
-
-
-## ⚠️ Security Notes
-
-
-
-### Do not share AWS credentials
-
-
-
-AWS credentials should never be committed to Git repositories.
-
-
-
-Never store:
-
-
-
-```text
-
-AWS Access Keys
-
-AWS Secret Keys
-
-Passwords
-
-Private Keys
-
-Session Tokens
-
-```
-
-
-
-inside this repository.
-
-
-
-### Avoid destructive testing
-
-
-
-Permission testing involving bucket deletion should only use disposable test resources.
-
-
-
-### Use least privilege
-
-
-
-Avoid giving users administrator permissions when narrower permissions are sufficient.
-
-
-
-### Review permissions regularly
-
-
-
-Unused or excessive permissions should be removed.
-
-
-
----
-
-
 
 ## 🎓 Learning Outcomes
 
+After completing this experiment, the following outcomes were achieved:
 
-
-After completing this experiment, the following concepts were understood:
-
-
-
-- AWS IAM architecture.
-
-- IAM users.
-
-- IAM groups.
-
-- IAM policies.
-
-- Policy JSON.
-
-- Authentication.
-
-- Authorization.
-
-- S3 permissions.
-
-- Explicit Deny.
-
-- Allow versus Deny.
-
-- Policy evaluation.
-
-- Least privilege.
-
-- Identity-based access control.
-
-- Secure cloud resource management.
-
-- Permission testing.
-
-
+- Understanding of Amazon S3 fundamentals.
+- Understanding of cloud object storage.
+- Practical bucket creation experience.
+- Practical object upload experience.
+- Understanding of object keys and properties.
+- Practical object-management experience.
+- Understanding of basic S3 security.
+- Understanding of storage classes.
+- Understanding of versioning at a conceptual level.
+- Ability to verify AWS storage operations using the Management Console.
 
 ---
 
+## 📝 Result
 
+The experiment was successfully completed.
 
-## 📈 Experiment Result
+An Amazon S3 bucket was created using the AWS Management Console, objects were uploaded into the bucket, object information was inspected, and the required object-management operations were performed successfully.
 
-
-
-The AWS IAM practical was successfully completed.
-
-
-
-The experiment demonstrated:
-
-
-
-```text
-
-IAM Users
-
-    ↓
-
-Permissions
-
-    ↓
-
-IAM Policies
-
-    ↓
-
-S3 Access
-
-    ↓
-
-Explicit Deny
-
-    ↓
-
-Restricted Destructive Operation
-
-```
-
-
-
-The IAM configuration successfully demonstrated that:
-
-
-
-```text
-
-Allow s3:*
-
-      +
-
-Deny s3:DeleteBucket
-
-      ↓
-
-Other S3 Operations → Allowed
-
-Bucket Deletion     → Denied
-
-```
-
-
-
-Therefore, the experiment successfully demonstrated IAM-based authorization and a practical application of least-privilege cloud security.
-
-
+The experiment provided practical exposure to AWS object storage and demonstrated how S3 can be used as a fundamental storage component for cloud applications.
 
 ---
-
-
 
 ## 🏁 Conclusion
 
+This experiment demonstrated the basic lifecycle of Amazon S3 object storage.
 
+The practical work covered:
 
-This experiment provided practical understanding of **AWS Identity and Access Management** and its role in securing cloud resources.
+```text
+Create
+  ↓
+Configure
+  ↓
+Store
+  ↓
+Inspect
+  ↓
+Manage
+  ↓
+Verify
+```
 
+Through this experiment, the relationship between **buckets and objects** was understood along with the importance of AWS Regions, object keys, storage classes, access control, and secure S3 configuration.
 
-
-IAM users were created and managed through the AWS Management Console, permissions were examined through IAM policies, and Amazon S3 was used to demonstrate resource-level authorization.
-
-
-
-The most important security concept demonstrated was the use of an explicit Deny to restrict `s3:DeleteBucket` even when broad S3 permissions are available. This showed how IAM policy evaluation can be used to create security guardrails and reduce the impact of destructive operations.
-
-
-
-The experiment establishes a foundation for more advanced cloud security topics such as IAM roles, MFA, CloudTrail, AWS Organizations, policy conditions, service control policies, and DevSecOps security controls.
-
-
+Amazon S3 provides a scalable and highly durable foundation for storing application data in cloud environments, making it one of the fundamental services used in AWS-based application development.
 
 ---
-
-
 
 ## 👨‍💻 Author
 
-
-
 **Nitanshu Tak**
 
-
-
-B.Tech — Computer Science Engineering
-
-
-
+B.Tech — Computer Science Engineering  
 Cloud Computing & Virtualization Technology
-
-
 
 ---
 
+> 🚀 **Cloud Application Development Lab — Learn → Build → Manage → Verify**
 
-
-> 🔐 **Cloud Computing Security & Management — Identify → Authorize → Restrict → Verify**

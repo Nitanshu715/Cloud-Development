@@ -1,4 +1,4 @@
-# ☁️ Experiment 4: Introduction to Amazon EC2 changed from Google Compute Engine to AWS
+# ☁️ Experiment 1: Introduction to Amazon EC2
 
 
 **Cloud Development Lab** · **AWS EC2** · **ap-south-1 (Mumbai)**
