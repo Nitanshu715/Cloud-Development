@@ -6,9 +6,9 @@
 
   <img src="https://img.shields.io/badge/AWS-Cloud%20Application%20Development-orange?logo=amazonaws&logoColor=white" alt="AWS">
 
-  <img src="https://img.shields.io/badge/Experiments-7-blue" alt="7 Experiments">
+  <img src="https://img.shields.io/badge/Experiments-7-blue" alt="7 experiments">
 
-  <img src="https://img.shields.io/badge/Status-Documented-success" alt="Documented">
+  <img src="https://img.shields.io/badge/Platform-AWS-yellow?logo=amazonaws&logoColor=white" alt="AWS">
 
 </p>
 
@@ -16,9 +16,11 @@
 
 <p align="center">
 
-  <b>Hands-on AWS Cloud Application Development</b><br>
+  **Hands-on AWS Cloud Application Development**  
 
-  <sub>Compute • Identity • Storage • Serverless APIs • Resilience</sub>
+  <br>
+
+  <sub>Compute • Identity • Storage • Resilience • Serverless APIs</sub>
 
 </p>
 
@@ -28,39 +30,253 @@
 
  
 
-## 📌 About
+## About
 
  
 
-This repository contains practical work completed for the **Cloud Application Development Lab** using **Amazon Web Services (AWS)**. Each experiment has its own `README.md` and screenshot evidence.
+This repository contains practical work completed for the **Cloud Application Development Lab** using Amazon Web Services (AWS). Each experiment has its own folder with a dedicated `README.md` and, where applicable, screenshots or supporting notes.
 
  
 
-## 🎯 Experiments
+The experiments progress from core cloud infrastructure to identity and access management, object storage, replication, NoSQL databases, and serverless APIs.
 
  
 
-| # | Experiment | AWS Service | Focus | Status |
-
-|---|---|---|---|---|
-
-| 01 | [Introduction to Amazon EC2](./experiment-1/README.md) | EC2 | Virtual machines, AMIs, Security Groups, SSH | ✅ |
-
-| 02 | [Introduction to AWS IAM](./experiment-2/README.md) | IAM | Users, policies, permissions, least privilege | ✅ |
-
-| 03 | [Creating Buckets and Managing Objects](./experiment-3/README.md) | S3 | Buckets, objects, access and security | ✅ |
-
-| 04 | [EC2 — GCE to AWS Adaptation](./experiment-4/README.md) | EC2 | Cloud compute using AWS as the GCE alternative | ✅ |
-
-| 05 | [Multi-Region S3 Backup](./experiment-5/README.md) | S3 | Versioning, Cross-Region Replication, Batch Replication | ✅ |
-
-| 06 | [Serverless NoSQL Database](./experiment-6/README.md) | DynamoDB | Keys, CRUD, Query vs Scan, GSI | ✅ |
-
-| 07 | [Introduction to Amazon API Gateway](./experiment-7/README.md) | API Gateway + Lambda | REST API, GET/POST, API key, CloudWatch | ⚠️ Handler verification needed |
+## Experiments
 
  
 
-## 📂 Repository Structure
+### Experiment 1 — Introduction to Amazon EC2
+
+ 
+
+**Service:** Amazon EC2  
+
+**Focus:** Launching and accessing a cloud virtual machine.
+
+ 
+
+- Selected an Amazon Machine Image (AMI) and instance type.
+
+- Launched an EC2 instance and configured its Security Group.
+
+- Used EC2 Instance Connect to access the Linux machine.
+
+- Inspected the operating system, CPU, memory, storage, hostname, and network.
+
+- Reviewed the instance lifecycle and cleanup.
+
+ 
+
+**Documentation:** [`experiment-1/README.md`](./experiment-1/README.md)
+
+ 
+
+---
+
+ 
+
+### Experiment 2 — Introduction to AWS IAM
+
+ 
+
+**Service:** AWS Identity and Access Management (IAM)  
+
+**Focus:** Identities, permissions, and policy evaluation.
+
+ 
+
+- Created and reviewed IAM users and permissions.
+
+- Examined JSON policy statements and their `Effect`, `Action`, and `Resource` fields.
+
+- Explored Allow and explicit Deny behavior.
+
+- Demonstrated that an applicable explicit Deny overrides an Allow.
+
+- Applied the principle of least privilege to AWS access.
+
+ 
+
+**Documentation:** [`experiment-2/README.md`](./experiment-2/README.md)
+
+ 
+
+---
+
+ 
+
+### Experiment 3 — Creating Buckets and Managing Objects
+
+ 
+
+**Service:** Amazon S3  
+
+**Focus:** Cloud object storage and object management.
+
+ 
+
+- Created an S3 bucket in the selected AWS Region.
+
+- Reviewed bucket settings and Block Public Access.
+
+- Uploaded files as S3 objects.
+
+- Viewed object details and properties.
+
+- Practiced basic object-management operations.
+
+- Reviewed object keys, access permissions, and storage security.
+
+ 
+
+**Documentation:** [`experiment-3/README.md`](./experiment-3/README.md)
+
+ 
+
+---
+
+ 
+
+### Experiment 4 — Introduction to Amazon EC2 (GCE-to-AWS Adaptation)
+
+ 
+
+**Service:** Amazon EC2  
+
+**Focus:** Completing a cloud-compute practical using AWS as the alternative to Google Compute Engine.
+
+ 
+
+- Selected the Mumbai Region (`ap-south-1`).
+
+- Launched a `t3.micro` instance using Amazon Linux 2023.
+
+- Configured SSH access through port `22` in a Security Group.
+
+- Connected using EC2 Instance Connect.
+
+- Inspected the Linux system and verified basic system information.
+
+- Cleaned up the instance after completing the practical.
+
+ 
+
+**Documentation:** [`experiment-4/README.md`](./experiment-4/README.md)
+
+ 
+
+---
+
+ 
+
+### Experiment 5 — Multi-Region S3 Backup Using Cross-Region Replication
+
+ 
+
+**Service:** Amazon S3  
+
+**Focus:** Replicating objects between AWS Regions for resilience.
+
+ 
+
+- Configured a source bucket in US East (N. Virginia), `us-east-1`.
+
+- Configured a destination bucket in Asia Pacific (Mumbai), `ap-south-1`.
+
+- Enabled Versioning on both buckets.
+
+- Created an S3 Cross-Region Replication (CRR) rule and its IAM role.
+
+- Used S3 Batch Replication to handle an existing object, `scheduler.pdf`.
+
+- Verified the replicated object and reviewed cleanup.
+
+ 
+
+**Documentation:** [`experiment-5/README.md`](./experiment-5/README.md)
+
+ 
+
+---
+
+ 
+
+### Experiment 6 — Amazon DynamoDB: Serverless NoSQL Database
+
+ 
+
+**Service:** Amazon DynamoDB  
+
+**Focus:** NoSQL data modeling and access patterns.
+
+ 
+
+- Created the `StudentCourses` table with `StudentId` as the partition key and `CourseId` as the sort key.
+
+- Inserted sample student-course registrations.
+
+- Read and updated an item.
+
+- Compared Query and Scan operations.
+
+- Created the `Status-CourseId-index` Global Secondary Index (GSI).
+
+- Queried registrations using the GSI and reviewed resource cleanup.
+
+ 
+
+**Documentation:** [`experiment-6/README.md`](./experiment-6/README.md)
+
+ 
+
+---
+
+ 
+
+### Experiment 7 — Introduction to Amazon API Gateway
+
+ 
+
+**Services:** Amazon API Gateway, AWS Lambda, Amazon CloudWatch  
+
+**Focus:** Deploying and testing a serverless REST API.
+
+ 
+
+- Configured the REST API `CAD-Experiment-7-REST-API` in Mumbai (`ap-south-1`).
+
+- Created the `/students` resource with `GET` and `POST` methods.
+
+- Integrated both methods with the Lambda function `cad-exp7-student-api` using Lambda proxy integration.
+
+- Deployed the API to the `dev` stage.
+
+- Configured API-key access through `CAD-Experiment-7-Usage-Plan`.
+
+- Tested requests from PowerShell and inspected CloudWatch logs.
+
+ 
+
+**Endpoint:**  
+
+`https://6pnwbvfcy6.execute-api.ap-south-1.amazonaws.com/dev/students`
+
+ 
+
+**Testing note:** Requests without the required API key returned HTTP `403`. Requests with the key reached Lambda, but the final response remained `Hello from Lambda!`. The intended student-specific GET/POST behavior was not verified; the Lambda handler configuration needs to be checked.
+
+ 
+
+**Documentation:** [`experiment-7/README.md`](./experiment-7/README.md)
+
+ 
+
+---
+
+ 
+
+## Repository Structure
 
  
 
@@ -118,67 +334,77 @@ cloud-application-development/
 
  
 
-## 🧭 Learning Path
+## Learning Path
 
  
 
 ```text
 
-EC2 Compute → IAM Security → S3 Storage → EC2 Platform Adaptation
+EC2 Compute
 
-           → Multi-Region Resilience → DynamoDB → API Gateway + Lambda
+    ↓
+
+IAM Identity and Access
+
+    ↓
+
+S3 Object Storage
+
+    ↓
+
+EC2 Platform Adaptation
+
+    ↓
+
+Multi-Region S3 Replication
+
+    ↓
+
+DynamoDB NoSQL
+
+    ↓
+
+API Gateway + Lambda
 
 ```
 
  
 
-## 🌐 Experiment 7 — Amazon API Gateway
+## Core Skills Practiced
 
  
 
-- **Region:** Mumbai (`ap-south-1`)
+- **Compute:** EC2 instances, AMIs, instance types, Security Groups, SSH, Linux inspection.
 
-- **REST API:** `CAD-Experiment-7-REST-API`
+- **Identity and security:** IAM users, policies, explicit Deny, least privilege, API-key controls.
 
-- **API ID:** `6pnwbvfcy6`
+- **Storage:** S3 buckets and objects, object keys, Versioning, Cross-Region Replication.
 
-- **Lambda:** `cad-exp7-student-api`
+- **Databases:** DynamoDB primary keys, CRUD operations, Query, Scan, and GSIs.
 
-- **Resource:** `/students`
+- **Serverless applications:** API Gateway resources and methods, Lambda proxy integration, deployment stages, HTTPS testing.
 
-- **Methods:** `GET`, `POST`
-
-- **Stage:** `dev`
-
-- **Usage plan:** `CAD-Experiment-7-Usage-Plan`
-
-- **Invoke URL:** `https://6pnwbvfcy6.execute-api.ap-south-1.amazonaws.com/dev/students`
+- **Operations:** CloudWatch logs, verification, documentation, cleanup, and cost awareness.
 
  
 
-The API methods use Lambda proxy integration. API-key-based access was configured through a usage plan, and CloudWatch logs were inspected.
+## Security and Cleanup
 
  
 
-**Testing note:** Requests without the required API key returned HTTP `403`. Requests with the key reached Lambda, but the final response remained `Hello from Lambda!`; the intended student-specific GET/POST behavior was not verified. Check the Lambda handler configuration before reporting the student API logic as functional.
+- Use least-privilege permissions and avoid unnecessary public access.
+
+- Keep API keys and credentials private; never commit real secrets to source control.
+
+- Check CloudWatch logs when diagnosing failures.
+
+- Remove temporary resources after collecting required evidence.
+
+- Delete IAM roles only when they were created for a lab and are not used by other resources.
 
  
 
-## 🛡️ Security & Cleanup
-
- 
-
-- Use least-privilege IAM permissions and keep API keys private.
-
-- Review CloudWatch logs when troubleshooting.
-
-- Delete only lab resources that are no longer needed, including dedicated APIs, Lambda functions, usage plans, keys, and log groups.
-
-- Do not delete shared IAM roles or resources used by other projects.
-
- 
-
-## 📚 Documentation
+## AWS Documentation
 
  
 
@@ -198,7 +424,11 @@ The API methods use Lambda proxy integration. API-key-based access was configure
 
  
 
-## 👨‍💻 Author
+---
+
+ 
+
+## Author
 
  
 
@@ -212,7 +442,7 @@ Cloud Computing & Virtualization Technology
 
 <p align="center">
 
-  <b>☁️ Cloud Application Development Lab</b><br>
+  <b>Cloud Application Development Lab</b><br>
 
   <sub>Learn → Build → Secure → Verify → Document</sub>
 
